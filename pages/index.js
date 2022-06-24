@@ -5,5 +5,9 @@
 // import contentManagement from "./contentManagement";
 
 export default function Home() {
-  return <div>HALOOOOO</div>;
+  return (
+    <>
+      <div>HALOOOOO</div>
+    </>
+  );
 }

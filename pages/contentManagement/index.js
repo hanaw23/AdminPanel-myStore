@@ -8,7 +8,9 @@ export default function contentManagement() {
         <LogoutButton logOut={handleLogOut} /> */}
       </div>
       <div className="ml-16">
-        <h1 className=" font-bold text-[30px] text-center text-gray-800 mt-2">Contents Management</h1>
+        <h1 className=" font-bold text-[30px] text-center text-gray-800 mt-2">
+          Contents Management
+        </h1>
       </div>
       <div className="ml-40 mt-20 mx-center">
         <ContentGrid />
