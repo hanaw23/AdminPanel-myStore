@@ -3,7 +3,7 @@ import { SetUserLocal } from "../../../utility";
 import { UrlLocal } from "../../../static";
 import axios from "axios";
 
-export const axiosLogin = (email, password, navigate, setError) => {
+export const axiosLogin = (email, password, router, setError) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(`${UrlLocal()}login`, {
@@ -12,8 +12,9 @@ export const axiosLogin = (email, password, navigate, setError) => {
       });
       SetUserLocal(response.data.user, response.data.token);
       dispatch(login(response.data.user));
-      navigate("/contentManagement");
+      router.push("/contentManagement");
     } catch (error) {
+      console.log("🚀 ~ file: index.js ~ line 17 ~ return ~ error", error);
       if (
         error.response.status === 400 ||
         error.response.status === 401 ||

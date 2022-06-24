@@ -8,10 +8,10 @@ export default function FormComponent() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const navigate = useRouter();
+  const router = useRouter();
   const login = (event) => {
     event.preventDefault();
-    dispatch(axiosLogin(email, password, navigate, setError));
+    dispatch(axiosLogin(email, password, router, setError));
   };
   return (
     <>
