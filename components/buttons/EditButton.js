@@ -3,7 +3,7 @@ import { useState } from "react";
 import EditIcon from "../svg/EditIcon";
 import ContentEditModal from "../modals/ContentEditModal";
 
-const EditButton = () => {
+const EditButton = (props) => {
   const [openEditModal, setOpenEditModal] = useState(false);
 
   const handleOpenEditModal = () => {
@@ -22,7 +22,7 @@ const EditButton = () => {
           <EditIcon />
         </button>
       </div>
-      {openEditModal ? <ContentEditModal onClose={handleCloseEditModal} content="Carousel" /> : null}
+      {openEditModal ? <ContentEditModal onClose={handleCloseEditModal} content="Carousel" idContent={props.idContent} nameContent={props.nameContent} descriptionContent={props.descriptionContent} imgContent={props.imgContent} /> : null}
     </>
   );
 };

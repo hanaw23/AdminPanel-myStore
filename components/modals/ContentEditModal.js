@@ -13,7 +13,7 @@ const ContentEditModal = (props) => {
               <div>
                 <div className="text-xl font-bold">Edit {props.content}</div>
                 <div className="mt-6">
-                  <ContentEditForm onClose={props.onClose} />
+                  <ContentEditForm onClose={props.onClose} idContent={props.idContent} nameContent={props.nameContent} descriptionContent={props.descriptionContent} imgContent={props.imgContent} />
                 </div>
               </div>
             </div>

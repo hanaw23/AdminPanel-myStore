@@ -1,44 +1,37 @@
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+/* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
+import { useRouter } from "next/router";
 // import { useDispatch } from "react-redux";
 
-// import Select from "react-select";
-
-import ImageIcon from "../svg/ImageIcon";
 // import ModalSuccess from "../Modals/SuccessMessage";
 // import ModalError from "../Modals/ErrorMessage";
 
 function ContentEditForm(props) {
-  // const [name, setName] = useState("");
-  // const [description, setDescription] = useState("");
-  //   const [price, setPrice] = useState(0);
+  const [name, setName] = useState(props.nameContent);
+  const [description, setDescription] = useState(props.descriptionContent);
+
   //   const [success, setSuccess] = useState("");
   //   const [failed, setFailed] = useState("");
 
-  //   const navigate = useNavigate();
+  const router = useRouter();
   //   const dispatch = useDispatch();
 
-  //   const addProductSubmit = (event) => {
-  //     event.preventDefault();
-
-  //     dispatch(addProductAxios(imageUrl, name, category, description, price, navigate, setFailed, setSuccess));
-  //   };
-
-  //   const handleChangeCategory = (event) => {
-  //     setCategory(event.value);
-  //     return category;
-  //   };
-
-  //   const imageHandlerPreview = (event) => {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       if (reader.readyState === 2) {
-  //         setimageUrlPreview(reader.result);
-  //         setImageUrl(event.target.files[0]);
-  //       }
-  //     };
-  //     reader.readAsDataURL(event.target.files[0]);
-  //   };
+  const editContentSubmit = async () => {
+    try {
+      const response = await axios.post(`${UrlWebAdmin()}/primaryContent/update/:${props.idContent}`, {
+        name: name,
+        description: description,
+      });
+      if (response) {
+        console.log(response);
+        router.push("/contentManagement");
+        // setSuccess(`Product ID : ${productId} and Product Name : ${name}`);
+        // dispatch(editProduct(response.data.result));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -47,24 +40,35 @@ function ContentEditForm(props) {
           <label htmlFor="photo" className="mb-4">
             Carousel Photo :
           </label>
-          {/* <img src={props.image} alt="Product Photo" height={130} width={165} /> */}
           <div className="ml-80 mb-2 h-[80px] w-[80px] mt-2">
-            <ImageIcon height={80} width={80} className="ml-[100px] mb-4" />
+            <img src={props.imgContent} alt="Product Photo" height={130} width={165} />
           </div>
         </div>
 
         <div className="mt-6 flex flex-col">
           <label htmlFor="name">Name:</label>
-          <input id="name" className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Input Carousel Name" />
+          <input
+            id="name"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
+            placeholder="Input Carousel Name"
+            onChange={(event) => setName(event.target.value)}
+            value={name}
+          />
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="description">Description :</label>
-          <textarea id="description" className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500" placeholder="Type Carousel Description" />
+          <textarea
+            id="description"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500"
+            placeholder="Type Carousel Description"
+            onChange={(event) => setDescription(event.target.value)}
+            value={description}
+          />
         </div>
 
         <div>
           <div className="flex gap-8 mt-20 justify-center">
-            <button className="border border-transparent bg-[#3CA6A6] text-sm w-[255px] h-12 rounded text-white font-bold" type="submit">
+            <button className="border border-transparent bg-[#3CA6A6] text-sm w-[255px] h-12 rounded text-white font-bold" type="submit" onSubmit={editContentSubmit}>
               Submit
             </button>
             <button className="border border-[#3CA6A6] text-sm w-[255px] h-12 rounded font-bold text-[#3CA6A6]" onClick={props.onClose}>

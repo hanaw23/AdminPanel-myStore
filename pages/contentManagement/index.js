@@ -15,9 +15,6 @@ export default function contentManagement() {
       <div className="ml-40 mt-20 mx-center">
         <ContentGrid />
       </div>
-
-      {/* <Drawer isOpen={openAdd} title="Add Product" onClose={handleCloseAdd} />
-      <Drawer isOpen={openEdit} title="Edit Product" onClose={handleCloseEdit} /> */}
     </div>
   );
 }

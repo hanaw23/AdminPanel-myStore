@@ -4,7 +4,7 @@ import { useState } from "react";
 // import { useDispatch } from "react-redux";
 
 import ImageIcon from "../svg/ImageIcon";
-import { UrlWebAdmin } from "../../statics/URL/urlDatabase";
+
 // import ModalSuccess from "../Modals/SuccessMessage";
 // import ModalError from "../Modals/ErrorMessage";
 
@@ -20,38 +20,38 @@ function ContentCreateForm(props) {
   //   const navigate = useNavigate();
   //   const dispatch = useDispatch();
 
-  const addContentCarouselSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      HasToken();
-      const formData = await new FormData();
-      formData.append("imageUrl", imageUrl);
-      formData.append("name", name);
-      formData.append("description", description);
+  // const addContentCarouselSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     HasToken();
+  //     const formData = await new FormData();
+  //     formData.append("imageUrl", imageUrl);
+  //     formData.append("name", name);
+  //     formData.append("description", description);
 
-      const response = await axios.post(`${UrlWebAdmin}primaryContent/create`, formData);
+  //     const response = await axios.post(`${UrlWebAdmin}primaryContent/create`, formData);
 
-      // navigate("/admin");
-      window.location.reload(true);
-      dispatch(addProduct(response.data.result));
-      console.log(response);
-      // setSuccess(`Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`);
-    } catch (error) {
-      console.log(error);
-      // setFailed(error);
-    }
-  };
+  //     // navigate("/admin");
+  //     window.location.reload(true);
+  //     dispatch(addProduct(response.data.result));
+  //     console.log(response);
+  //     // setSuccess(`Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`);
+  //   } catch (error) {
+  //     console.log(error);
+  //     // setFailed(error);
+  //   }
+  // };
 
-  const imageHandlerPreview = (event) => {
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setimageUrlPreview(reader.result);
-        setImageUrl(event.target.files[0]);
-      }
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
+  // const imageHandlerPreview = (event) => {
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       setimageUrlPreview(reader.result);
+  //       setImageUrl(event.target.files[0]);
+  //     }
+  //   };
+  //   reader.readAsDataURL(event.target.files[0]);
+  // };
 
   return (
     <>
