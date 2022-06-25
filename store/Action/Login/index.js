@@ -14,7 +14,6 @@ export const axiosLogin = (email, password, router, setError) => {
       dispatch(login(response.data.user));
       router.push("/contentManagement");
     } catch (error) {
-      console.log("🚀 ~ file: index.js ~ line 17 ~ return ~ error", error);
       if (
         error.response.status === 400 ||
         error.response.status === 401 ||

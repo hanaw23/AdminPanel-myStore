@@ -1,6 +1,13 @@
-import ContentGrid from "../../components/grids/ContentGrid";
+import { useEffect } from "react";
+import { ContentGrid } from "../../components/grids/ContentGrid";
+import { ProtectedRoute } from "../../middleware/ProtectedRoute";
 
-export default function contentManagement() {
+const contentManagement = () => {
+  useEffect(() => {
+    return () => {
+      ProtectedRoute;
+    };
+  }, []);
   return (
     <div className="z-0">
       <div className="flex justify-between h-14">
@@ -20,4 +27,6 @@ export default function contentManagement() {
       <Drawer isOpen={openEdit} title="Edit Product" onClose={handleCloseEdit} /> */}
     </div>
   );
-}
+};
+
+export default contentManagement;

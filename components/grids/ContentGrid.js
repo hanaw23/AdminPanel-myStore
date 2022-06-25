@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ContentGrid = () => {
+export const ContentGrid = () => {
   const [hoverAction, setHoverAction] = useState(false);
 
   return (
@@ -21,7 +21,9 @@ const ContentGrid = () => {
                   </div>
                 </div>
               ) : (
-                <h1 className="mt-2 mr-[30px] text-gray-300 text-sm">Head Web</h1>
+                <h1 className="mt-2 mr-[30px] text-gray-300 text-sm">
+                  Head Web
+                </h1>
               )}
             </div>
           </button>
@@ -40,5 +42,3 @@ const ContentGrid = () => {
     </div>
   );
 };
-
-export default ContentGrid;

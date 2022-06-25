@@ -1,9 +1,9 @@
-// import AlertComponent from "../alert";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { axiosLogin } from "../../../store/Action/Login";
-export default function FormComponent() {
+
+export const FormComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -15,10 +15,6 @@ export default function FormComponent() {
   };
   return (
     <>
-      {error && <h1>{error}</h1>}
-      {/* <div className="min-h-full flex items-center justify-center mt-20 ">
-        <AlertComponent />
-      </div> */}
       <div className="h-full bg-gray-200 mt-20 w-3/12 rounded-t-full ml-auto mr-auto">
         <div className="h-full">
           <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -34,6 +30,11 @@ export default function FormComponent() {
                 </h2>
               </div>
               <form className="mt-8 space-y-6" action="#" method="POST">
+                {error && (
+                  <h3 className="text-center font-extrabold text-red-700">
+                    {error}
+                  </h3>
+                )}
                 <input type="hidden" name="remember" defaultValue="true" />
                 <div className="rounded-md shadow-sm -space-y-px">
                   <div>
@@ -109,4 +110,4 @@ export default function FormComponent() {
       </div>
     </>
   );
-}
+};
