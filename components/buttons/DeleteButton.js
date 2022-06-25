@@ -22,14 +22,7 @@ const DeleteButton = (props) => {
           <DeleteIcon />
         </button>
       </div>
-      {openDeleteModal ? (
-        <ContentDeleteModal
-          onClose={handleCloseDeleteModal}
-          deleteCommand="content"
-          idContent={props.idContent}
-          nameContent={props.nameContent}
-        />
-      ) : null}
+      {openDeleteModal ? <ContentDeleteModal onClose={handleCloseDeleteModal} idContent={props.idContent} nameContent={props.nameContent} content={props.content} /> : null}
     </>
   );
 };

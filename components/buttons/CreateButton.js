@@ -3,7 +3,7 @@ import { useState } from "react";
 import ContentCreateModal from "../modals/ContentCreateModal";
 import CreateIcon from "../svg/CreateIcon";
 
-const CreateButton = () => {
+const CreateButton = (props) => {
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
   const handleOpenCreateModal = () => {
@@ -22,12 +22,7 @@ const CreateButton = () => {
           <CreateIcon />
         </button>
       </div>
-      {openCreateModal ? (
-        <ContentCreateModal
-          onClose={handleCloseCreateModal}
-          content="Carousel"
-        />
-      ) : null}
+      {openCreateModal ? <ContentCreateModal onClose={handleCloseCreateModal} content={props.content} /> : null}
     </>
   );
 };
