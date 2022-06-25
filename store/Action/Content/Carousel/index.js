@@ -26,7 +26,7 @@ export const axiosEditCarousel = (idContent, name, description, router, setSucce
 export const axiosDeleteCarousel = (idContent, router) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin}primaryContent/delete/${idContent}`);
+      const response = await axios.post(`${UrlWebAdmin()}primaryContent/delete/${idContent}`);
 
       if (response) {
         router.push("/contentManagement");
