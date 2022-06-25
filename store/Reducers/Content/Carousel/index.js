@@ -5,6 +5,8 @@ const carouselSlice = createSlice({
   initialState: {
     carouselEdit: null,
     carouselDelete: null,
+    carouselCreate: null,
+    carouselGet: null,
   },
   reducers: {
     carouselEdit: (state, action) => {
@@ -14,8 +16,16 @@ const carouselSlice = createSlice({
     carouselDelete: (state, action) => {
       state.carouselDelete = action.payload;
     },
+
+    carouselCreate: (state, action) => {
+      state.carouselCreate = action.payload;
+    },
+
+    carouselGet: (state, action) => {
+      state.carouselGet = action.payload;
+    },
   },
 });
 
-export const { carouselEdit, carouselDelete } = carouselSlice.actions;
+export const { carouselEdit, carouselDelete, carouselCreate, carouselGet } = carouselSlice.actions;
 export const carouselReducer = carouselSlice.reducer;

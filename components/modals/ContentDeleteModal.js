@@ -1,19 +1,51 @@
 import ReactDOM from "react-dom";
 import OutsideClickHandler from "react-outside-click-handler";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 import style from "./Modal.module.css";
+import SuccessMessage from "./SuccessMessage";
+import ErrorMessage from "./ErrorMessage";
+
 import { axiosDeleteCarousel } from "../../store/Action/Content/Carousel";
+import { axiosDeleteSecondary } from "../../store/Action/Content/Secondary";
 
 const ContentDeleteModal = (props) => {
+  const [success, setSuccess] = useState("");
+  const [failed, setFailed] = useState("");
+
+  const idContent = props.idContent;
+  const name = props.nameContent;
+
   const router = useRouter();
   const dispatch = useDispatch();
-  const idContent = props.idContent;
-  console.log(idContent);
 
-  const DeleteContentSubmit = () => {
-    dispatch(axiosDeleteCarousel(idContent, router));
+  const DeleteCarouselSubmit = () => {
+    dispatch(axiosDeleteCarousel(idContent, name, router, setSuccess, setFailed));
+  };
+
+  const DeleteSecondarySubmit = () => {
+    dispatch(axiosDeleteSecondary(idContent, name, router, setSuccess, setFailed));
+  };
+
+  const switchModalCase = () => {
+    switch (props.content) {
+      case "Carousel":
+        return (
+          <button className="border border-transparent bg-indigo-700 text-sm w-20 h-8 rounded text-white text-semibold" type="submit" onClick={DeleteCarouselSubmit}>
+            Delete
+          </button>
+        );
+      case "Secondary":
+        return (
+          <button className="border border-transparent bg-indigo-700 text-sm w-20 h-8 rounded text-white text-semibold" type="submit" onClick={DeleteSecondarySubmit}>
+            Delete
+          </button>
+        );
+
+      default:
+    }
   };
 
   return ReactDOM.createPortal(
@@ -25,13 +57,11 @@ const ContentDeleteModal = (props) => {
               <div className="w-50 h-50 bg-white rounded-[8px] px-6 py-6">
                 <div>
                   <div>
-                    Are you sure want to delete {props.nameContent} {props.deleteCommand}?
+                    Are you sure want to delete {props.nameContent} {props.content}?
                   </div>
                 </div>
                 <div className="flex gap-10 mt-8 justify-center">
-                  <button className="border border-transparent bg-indigo-700 text-sm w-20 h-8 rounded text-white text-semibold" type="submit" onSubmit={DeleteContentSubmit}>
-                    Delete
-                  </button>
+                  {switchModalCase()}
                   <button className="border border-indigo-700 bg-white-700 text-sm w-20 h-8 rounded text-indigo-400 text-semibold" onClick={props.onClose}>
                     Cancel
                   </button>
@@ -41,6 +71,8 @@ const ContentDeleteModal = (props) => {
           </div>
         </OutsideClickHandler>
       </div>
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Delete Carousel" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Delete Carousel" />}
     </>,
     document.body
   );

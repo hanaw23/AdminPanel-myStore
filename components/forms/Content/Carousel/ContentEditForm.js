@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
-import { axiosEditCarousel } from "../../store/Action/Content/Carousel";
-import SuccessMessage from "../modals/SuccessMessage";
-import ErrorMessage from "../modals/ErrorMessage";
+import { axiosEditCarousel } from "../../../../store/Action/Content/Carousel";
+import SuccessMessage from "../../../modals/SuccessMessage";
+import ErrorMessage from "../../../modals/ErrorMessage";
 
 function ContentEditForm(props) {
   const [name, setName] = useState(props.nameContent);
@@ -25,29 +25,29 @@ function ContentEditForm(props) {
     <>
       <div className="text-sm bg-white ">
         <div className="mt-4">
-          <label htmlFor="photo" className="mb-4">
+          <label htmlFor="photo" className="mb-4 text-indigo-700">
             Carousel Photo :
           </label>
-          <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
+          <div className="ml-80 mb-2 mt-2">
             <img src={props.imgContent} alt="Product Photo" height={100} width={100} />
           </div>
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Name</label>
           <input
             id="name"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-indigo-700 focus:outline-blue-500"
             placeholder="Input Carousel Name"
             onChange={(event) => setName(event.target.value)}
             value={name}
           />
         </div>
         <div className="mt-6 flex flex-col">
-          <label htmlFor="description">Description :</label>
+          <label htmlFor="description">Description</label>
           <textarea
             id="description"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-indigo-700 focus:outline-blue-500"
             placeholder="Type Carousel Description"
             onChange={(event) => setDescription(event.target.value)}
             value={description}

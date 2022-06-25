@@ -25,11 +25,14 @@ const EditButton = (props) => {
       {openEditModal ? (
         <ContentEditModal
           onClose={handleCloseEditModal}
-          content="Carousel"
+          content={props.content}
           idContent={props.idContent}
           nameContent={props.nameContent}
           descriptionContent={props.descriptionContent}
           imgContent={props.imgContent}
+          logoA={props.logoA}
+          logoB={props.logoB}
+          logoC={props.logoC}
         />
       ) : null}
     </>
