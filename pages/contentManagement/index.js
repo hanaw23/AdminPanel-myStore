@@ -1,13 +1,8 @@
-import { useEffect } from "react";
-import { ContentGrid } from "../../components/grids/ContentGrid";
-import { ProtectedRoute } from "../../middleware/ProtectedRoute";
+import ContentGrid from "../../components/grids/ContentGrid";
+import { HasToken } from "../../utility";
 
 const contentManagement = () => {
-  useEffect(() => {
-    return () => {
-      ProtectedRoute;
-    };
-  }, []);
+  HasToken();
   return (
     <div className="z-0">
       <div className="flex justify-between h-14">
@@ -22,9 +17,6 @@ const contentManagement = () => {
       <div className="ml-40 mt-20 mx-center">
         <ContentGrid />
       </div>
-
-      {/* <Drawer isOpen={openAdd} title="Add Product" onClose={handleCloseAdd} />
-      <Drawer isOpen={openEdit} title="Edit Product" onClose={handleCloseEdit} /> */}
     </div>
   );
 };

@@ -1,12 +1,12 @@
 import { login } from "../../Reducers/Login";
 import { SetUserLocal } from "../../../utility";
-import { UrlLocal } from "../../../static";
+import { UrlWebAdmin } from "../../../static";
 import axios from "axios";
 
 export const axiosLogin = (email, password, router, setError) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlLocal()}login`, {
+      const response = await axios.post(`${UrlWebAdmin()}login`, {
         email: email,
         password: password,
       });
