@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { secondaryEdit, secondaryDelete, secondaryCreate, secondaryGet } from "../../../Reducers/Content/Secondary";
+import {
+  secondaryEdit,
+  secondaryDelete,
+  secondaryCreate,
+  secondaryGet,
+} from "../../../Reducers/Content/Secondary";
 import { UrlWebAdmin } from "../../../../static";
 
 export const axiosGetSecondary = (setSecondary) => {
@@ -17,34 +22,59 @@ export const axiosGetSecondary = (setSecondary) => {
   };
 };
 
-// export const axiosCreateSecondary = (name, imageUrl, description, router, setSuccess) => {
-//   return async (dispatch) => {
-//     try {
-//       const formData = new FormData();
-//       formData.append("imageUrl", imageUrl);
-//       formData.append("name", name);
-//       formData.append("description", description);
-
-//       const response = await axios.post(`${UrlWebAdmin}secondaryContent/create`, formData);
-
-//       router.push("/contentManagement");
-//       window.location.reload(true);
-//       setSuccess(`Content Name : ${name}`);
-//       dispatch(SecondaryCreate(response.data.content));
-//     } catch (error) {
-//       console.log(error);
-//       // setFailed(error);
-//     }
-//   };
-// };
-
-export const axiosEditSecondary = (idContent, name, description, router, setSuccess, setFailed) => {
+export const axiosCreateSecondary = (
+  name,
+  imageUrl,
+  logoA,
+  logoB,
+  logoC,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}secondaryContent/update/${idContent}`, {
-        name: name,
-        description: description,
-      });
+      const formData = new FormData();
+      formData.append("imageUrl", imageUrl);
+      formData.append("logoA", logoA);
+      formData.append("logoB", logoB);
+      formData.append("logoC", logoC);
+      formData.append("name", name);
+      formData.append("description", description);
+
+      const response = await axios.post(
+        `${UrlWebAdmin()}secondaryContent/create`,
+        formData
+      );
+
+      router.push("/contentManagement");
+      window.location.reload(true);
+      setSuccess(`Content Name : ${name}`);
+      dispatch(secondaryCreate(response.data.content));
+    } catch (error) {
+      setFailed(error);
+    }
+  };
+};
+
+export const axiosEditSecondary = (
+  idContent,
+  name,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `${UrlWebAdmin()}secondaryContent/update/${idContent}`,
+        {
+          name: name,
+          description: description,
+        }
+      );
 
       if (response) {
         router.push("/contentManagement");
@@ -58,10 +88,18 @@ export const axiosEditSecondary = (idContent, name, description, router, setSucc
   };
 };
 
-export const axiosDeleteSecondary = (idContent, name, router, setSuccess, setFailed) => {
+export const axiosDeleteSecondary = (
+  idContent,
+  name,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}secondaryContent/delete/${idContent}`);
+      const response = await axios.post(
+        `${UrlWebAdmin()}secondaryContent/delete/${idContent}`
+      );
       console.log(response);
 
       if (response) {

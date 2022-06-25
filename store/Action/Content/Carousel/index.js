@@ -1,7 +1,14 @@
 import axios from "axios";
 
-import { carouselEdit, carouselDelete, carouselCreate, carouselGet } from "../../../Reducers/Content/Carousel";
+import {
+  carouselEdit,
+  carouselDelete,
+  carouselCreate,
+  carouselGet,
+} from "../../../Reducers/Content/Carousel";
 import { UrlWebAdmin } from "../../../../static";
+
+import { HasToken } from "../../../../utility";
 
 export const axiosGetCarousel = (setCarousel) => {
   return (dispatch) => {
@@ -17,34 +24,52 @@ export const axiosGetCarousel = (setCarousel) => {
   };
 };
 
-export const axiosCreateCarousel = (name, imageUrl, description, router, setSuccess) => {
+export const axiosCreateCarousel = (
+  name,
+  imageUrl,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
+      HasToken();
       const formData = new FormData();
       formData.append("imageUrl", imageUrl);
       formData.append("name", name);
       formData.append("description", description);
-
-      const response = await axios.post(`${UrlWebAdmin}primaryContent/create`, formData);
-
+      const response = await axios.post(
+        `${UrlWebAdmin()}primaryContent/create`,
+        formData
+      );
       router.push("/contentManagement");
       window.location.reload(true);
       setSuccess(`Content Name : ${name}`);
       dispatch(carouselCreate(response.data.content));
     } catch (error) {
-      console.log(error);
-      // setFailed(error);
+      setFailed(error);
     }
   };
 };
 
-export const axiosEditCarousel = (idContent, name, description, router, setSuccess, setFailed) => {
+export const axiosEditCarousel = (
+  idContent,
+  name,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}primaryContent/update/${idContent}`, {
-        name: name,
-        description: description,
-      });
+      const response = await axios.post(
+        `${UrlWebAdmin()}primaryContent/update/${idContent}`,
+        {
+          name: name,
+          description: description,
+        }
+      );
 
       if (response) {
         router.push("/contentManagement");
@@ -58,10 +83,18 @@ export const axiosEditCarousel = (idContent, name, description, router, setSucce
   };
 };
 
-export const axiosDeleteCarousel = (idContent, name, router, setSuccess, setFailed) => {
+export const axiosDeleteCarousel = (
+  idContent,
+  name,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}primaryContent/delete/${idContent}`);
+      const response = await axios.post(
+        `${UrlWebAdmin()}primaryContent/delete/${idContent}`
+      );
       console.log(response);
 
       if (response) {

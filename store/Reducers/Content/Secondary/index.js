@@ -5,7 +5,7 @@ const secondarySlice = createSlice({
   initialState: {
     secondaryEdit: null,
     secondaryDelete: null,
-    // secondaryCreate: null,
+    secondaryCreate: null,
     secondaryGet: null,
   },
   reducers: {
@@ -17,9 +17,9 @@ const secondarySlice = createSlice({
       state.secondaryDelete = action.payload;
     },
 
-    // secondaryCreate: (state, action) => {
-    //   state.secondaryCreate = action.payload;
-    // },
+    secondaryCreate: (state, action) => {
+      state.secondaryCreate = action.payload;
+    },
 
     secondaryGet: (state, action) => {
       state.secondaryGet = action.payload;
