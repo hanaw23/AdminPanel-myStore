@@ -1,43 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { useRouter } from "next/router";
-import axios from "axios";
-import { UrlWebAdmin } from "../../static";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-// import ModalSuccess from "../Modals/SuccessMessage";
-// import ModalError from "../Modals/ErrorMessage";
+import { axiosEditCarousel } from "../../store/Action/Content/Carousel";
+import SuccessMessage from "../modals/SuccessMessage";
+import ErrorMessage from "../modals/ErrorMessage";
 
 function ContentEditForm(props) {
   const [name, setName] = useState(props.nameContent);
   const [description, setDescription] = useState(props.descriptionContent);
+  const [success, setSuccess] = useState("");
+  const [failed, setFailed] = useState("");
 
-  //   const [success, setSuccess] = useState("");
-  //   const [failed, setFailed] = useState("");
-
+  const idContent = props.idContent;
   const router = useRouter();
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const editContentSubmit = async () => {
-    try {
-      const response = await axios.post(
-        `${UrlWebAdmin()}primaryContent/update/${props.idContent}`,
-        {
-          name: name,
-          description: description,
-        }
-      );
-
-      if (response) {
-        console.log(response);
-        alert("Success update !");
-        router.push("/contentManagement");
-        // setSuccess(`Product ID : ${productId} and Product Name : ${name}`);
-        // dispatch(editProduct(response.data.result));
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const editContentSubmit = () => {
+    dispatch(axiosEditCarousel(idContent, name, description, router, setSuccess, setFailed));
   };
 
   return (
@@ -47,13 +28,8 @@ function ContentEditForm(props) {
           <label htmlFor="photo" className="mb-4">
             Carousel Photo :
           </label>
-          <div className="ml-80 mb-2 h-[80px] w-[80px] mt-2">
-            <img
-              src={props.imgContent}
-              alt="Product Photo"
-              height={130}
-              width={165}
-            />
+          <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
+            <img src={props.imgContent} alt="Product Photo" height={100} width={100} />
           </div>
         </div>
 
@@ -80,24 +56,17 @@ function ContentEditForm(props) {
 
         <div>
           <div className="flex gap-8 mt-20 justify-center">
-            <button
-              className="border border-transparent bg-[#3CA6A6] text-sm w-[255px] h-12 rounded text-white font-bold"
-              type="submit"
-              onClick={editContentSubmit}
-            >
+            <button className="border border-transparent bg-indigo-700 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" type="submit" onClick={editContentSubmit}>
               Submit
             </button>
-            <button
-              className="border border-[#3CA6A6] text-sm w-[255px] h-12 rounded font-bold text-[#3CA6A6]"
-              onClick={props.onClose}
-            >
+            <button className="border border-indigo-700 text-sm w-[255px] h-12 rounded-[10px] font-bold text-indigo-400" onClick={props.onClose}>
               Cancel
             </button>
           </div>
         </div>
       </div>
-      {/* {success.length !== 0 && <ModalSuccess message={success} actionTitle="Add Product" />}
-      {failed.length !== 0 && <ModalError message={failed} actionTitle="Add Product" />} */}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Edit Carousel" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Add Product" />}
     </>
   );
 }

@@ -58,20 +58,12 @@ const ContentGrid = (props) => {
                 <div className="mt-[195px] mr-[110px]">
                   <div className="flex text-gray-700 gap-6">
                     <CreateButton />
-                    <EditButton
-                      idContent={item.pc_id}
-                      nameContent={item.name}
-                      descriptionContent={item.description}
-                      imgContent={item.imageUrl}
-                    />
-                    <DeleteButton
-                      idContent={item.pc_id}
-                      nameContent={item.name}
-                    />
+                    <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} />
+                    <DeleteButton idContent={item.pc_id} nameContent={item.name} />
                   </div>
                 </div>
               ) : (
-                <h1 className="mr-3 mt-2 text-gray-300 text-sm">{item.name}</h1>
+                <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
               )}
             </div>
           ))}
