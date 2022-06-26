@@ -14,16 +14,11 @@ export const GetToken = () => {
 };
 
 export const SetUserLocal = (user, token) => {
-  return (
-    localStorage.setItem("USER_DATA", JSON.stringify(user)),
-    localStorage.setItem("USER_TOKEN", token)
-  );
+  return localStorage.setItem("USER_DATA", JSON.stringify(user)), localStorage.setItem("USER_TOKEN", token);
 };
 
 export const RemoveUserLocal = () => {
-  return (
-    localStorage.removeItem("USER_DATA"), localStorage.removeItem("USER_TOKEN")
-  );
+  return localStorage.removeItem("USER_DATA"), localStorage.removeItem("USER_TOKEN");
 };
 
 export const HasToken = () => {
