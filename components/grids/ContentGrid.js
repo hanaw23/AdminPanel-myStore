@@ -45,9 +45,7 @@ const ContentGrid = () => {
                 </div>
               </div>
             ) : (
-              <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">
-                About Us
-              </h1>
+              <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">About Us</h1>
             )}
           </div>
         </div>
@@ -58,9 +56,7 @@ const ContentGrid = () => {
                 <div className="ml-[40px]">
                   <CreateButton content="Carousel" />
                 </div>
-                <h1 className="text-m text-gray-500 font-semibold">
-                  Create Carousel
-                </h1>
+                <h1 className="text-m text-gray-500 font-semibold">Create Carousel</h1>
               </div>
             </div>
           ) : (
@@ -75,39 +71,25 @@ const ContentGrid = () => {
                 {hoverAction2 ? (
                   <div className="mt-[195px] mr-[125px]">
                     <div className="flex text-gray-700 gap-6">
-                      <EditButton
-                        idContent={item.pc_id}
-                        nameContent={item.name}
-                        descriptionContent={item.description}
-                        imgContent={item.imageUrl}
-                        content="Carousel"
-                      />
-                      <DeleteButton
-                        idContent={item.pc_id}
-                        nameContent={item.name}
-                        content="Carousel"
-                      />
+                      <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} content="Carousel" />
+                      <DeleteButton idContent={item.pc_id} nameContent={item.name} content="Carousel" />
                     </div>
                   </div>
                 ) : (
-                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">
-                    {item.name}
-                  </h1>
+                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
                 )}
               </div>
             ))
           )}
         </div>
         <div>
-          {secondary.content?.length !== 0 ? (
+          {secondary.content?.length === 0 ? (
             <div className="border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer">
               <div className="flex flex-col justify-center mr-[100px] gap-2 ">
                 <div className="ml-[50px]">
                   <CreateButton content="Secondary" />
                 </div>
-                <h1 className="text-m text-gray-500 font-semibold">
-                  Create Secondary
-                </h1>
+                <h1 className="text-m text-gray-500 font-semibold">Create Secondary</h1>
               </div>
             </div>
           ) : (
@@ -122,27 +104,12 @@ const ContentGrid = () => {
                 {hoverAction3 ? (
                   <div className="mt-[195px] mr-[125px]">
                     <div className="flex text-gray-700 gap-6">
-                      <EditButton
-                        idContent={item.sc_id}
-                        nameContent={item.name}
-                        descriptionContent={item.description}
-                        imgContent={item.imageUrl}
-                        logoA={item.logoA}
-                        logoB={item.logoB}
-                        logoC={item.logoC}
-                        content="Secondary"
-                      />
-                      <DeleteButton
-                        idContent={item.sc_id}
-                        nameContent={item.name}
-                        content="Secondary"
-                      />
+                      <EditButton idContent={item.sc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} logoA={item.logoA} logoB={item.logoB} logoC={item.logoC} content="Secondary" />
+                      <DeleteButton idContent={item.sc_id} nameContent={item.name} content="Secondary" />
                     </div>
                   </div>
                 ) : (
-                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">
-                    {item.name}
-                  </h1>
+                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
                 )}
               </div>
             ))

@@ -19,24 +19,15 @@ function SecondaryCreateForm(props) {
   const [description, setDescription] = useState("");
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
+
   const dispatch = useDispatch();
   const router = useRouter();
+
   const createContentSecondarySubmit = async (event) => {
     event.preventDefault();
-    dispatch(
-      axiosCreateSecondary(
-        name,
-        imageUrl,
-        logoA,
-        logoB,
-        logoC,
-        description,
-        router,
-        setSuccess,
-        setFailed
-      )
-    );
+    dispatch(axiosCreateSecondary(name, imageUrl, logoA, logoB, logoC, description, router, setSuccess, setFailed));
   };
+
   const imageHandlerPreview = (event) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -47,6 +38,7 @@ function SecondaryCreateForm(props) {
     };
     reader.readAsDataURL(event.target.files[0]);
   };
+
   const logoAHandlerPreview = (event) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -57,6 +49,7 @@ function SecondaryCreateForm(props) {
     };
     reader.readAsDataURL(event.target.files[0]);
   };
+
   const logoBHandlerPreview = (event) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -67,6 +60,7 @@ function SecondaryCreateForm(props) {
     };
     reader.readAsDataURL(event.target.files[0]);
   };
+
   const logoCHandlerPreview = (event) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -77,6 +71,7 @@ function SecondaryCreateForm(props) {
     };
     reader.readAsDataURL(event.target.files[0]);
   };
+
   return (
     <>
       <div className="text-sm bg-white ">
@@ -85,109 +80,40 @@ function SecondaryCreateForm(props) {
             Upload Promo Photo :
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
-            {imageUrlPreview !== null ? (
-              <img
-                src={imageUrlPreview}
-                alt="preview product"
-                id="frame"
-                height={100}
-                width={100}
-              />
-            ) : (
-              <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />
-            )}
+            {imageUrlPreview !== null ? <img src={imageUrlPreview} alt="preview product" id="frame" height={100} width={100} /> : <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />}
           </div>
-          <input
-            type="file"
-            accept="image/*"
-            className="text-gray-700 mt-2"
-            id="photo"
-            onChange={imageHandlerPreview}
-          />
+          <input type="file" accept="image/*" className="text-gray-700 mt-2" id="photo" onChange={imageHandlerPreview} />
         </div>
         <div className="mt-4">
           <label htmlFor="logoA" className="mb-4 text-indigo-700">
             Upload Logo A :
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
-            {logoAPreview !== null ? (
-              <img
-                src={logoAPreview}
-                alt="preview product"
-                id="frame"
-                height={100}
-                width={100}
-              />
-            ) : (
-              <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />
-            )}
+            {logoAPreview !== null ? <img src={logoAPreview} alt="preview product" id="frame" height={100} width={100} /> : <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />}
           </div>
-          <input
-            type="file"
-            accept="image/*"
-            className="text-gray-700 mt-2"
-            id="logoA"
-            onChange={logoAHandlerPreview}
-          />
+          <input type="file" accept="image/*" className="text-gray-700 mt-2" id="logoA" onChange={logoAHandlerPreview} />
         </div>
         <div className="mt-4">
           <label htmlFor="logoB" className="mb-4 text-indigo-700">
             Upload Logo B :
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
-            {logoBPreview !== null ? (
-              <img
-                src={logoBPreview}
-                alt="preview product"
-                id="frame"
-                height={100}
-                width={100}
-              />
-            ) : (
-              <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />
-            )}
+            {logoBPreview !== null ? <img src={logoBPreview} alt="preview product" id="frame" height={100} width={100} /> : <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />}
           </div>
-          <input
-            type="file"
-            accept="image/*"
-            className="text-gray-700 mt-2"
-            id="logoB"
-            onChange={logoBHandlerPreview}
-          />
+          <input type="file" accept="image/*" className="text-gray-700 mt-2" id="logoB" onChange={logoBHandlerPreview} />
         </div>
         <div className="mt-4">
           <label htmlFor="logoC" className="mb-4 text-indigo-700">
             Upload Logo C :
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
-            {logoCPreview !== null ? (
-              <img
-                src={logoCPreview}
-                alt="preview product"
-                id="frame"
-                height={100}
-                width={100}
-              />
-            ) : (
-              <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />
-            )}
+            {logoCPreview !== null ? <img src={logoCPreview} alt="preview product" id="frame" height={100} width={100} /> : <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />}
           </div>
-          <input
-            type="file"
-            accept="image/*"
-            className="text-gray-700 mt-2"
-            id="logoC"
-            onChange={logoCHandlerPreview}
-          />
+          <input type="file" accept="image/*" className="text-gray-700 mt-2" id="logoC" onChange={logoCHandlerPreview} />
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="name">Name:</label>
-          <input
-            id="name"
-            className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
-            placeholder="Input Carousel Name"
-            onChange={(e) => setName(e.target.value)}
-          />
+          <input id="name" className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Input Carousel Name" onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="description">Description :</label>
@@ -200,28 +126,17 @@ function SecondaryCreateForm(props) {
         </div>
         <div>
           <div className="flex gap-8 mt-20 justify-center">
-            <button
-              className="border border-transparent bg-indigo-700 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold"
-              type="submit"
-              onClick={createContentSecondarySubmit}
-            >
+            <button className="border border-transparent bg-indigo-700 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" type="submit" onClick={createContentSecondarySubmit}>
               Submit
             </button>
-            <button
-              className="border border-indigo-700 text-sm w-[255px] h-12 rounded-[10px] font-bold text-indigo-400"
-              onClick={props.onClose}
-            >
+            <button className="border border-indigo-700 text-sm w-[255px] h-12 rounded-[10px] font-bold text-indigo-400" onClick={props.onClose}>
               Cancel
             </button>
           </div>
         </div>
       </div>
-      {success.length !== 0 && (
-        <SuccessMessage message={success} actionTitle="Create Carousel" />
-      )}
-      {failed.length !== 0 && (
-        <ErrorMessage message={failed} actionTitle="Create Carousel" />
-      )}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Create Carousel" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Create Carousel" />}
     </>
   );
 }
