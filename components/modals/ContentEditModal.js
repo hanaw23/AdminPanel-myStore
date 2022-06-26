@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 
 import ContentEditForm from "../forms/Content/Carousel/ContentEditForm";
 import SecondaryEditForm from "../forms/Content/Secondary/SecondaryEditForm";
+import AboutEditForm from "../forms/Content/About/AboutEditForm";
 import style from "./Modal.module.css";
 
 const ContentEditModal = (props) => {
@@ -22,6 +23,8 @@ const ContentEditModal = (props) => {
             logoC={props.logoC}
           />
         );
+      case "About":
+        return <AboutEditForm onClose={props.onClose} idContent={props.idContent} nameContent={props.nameContent} descriptionContent={props.descriptionContent} videoContent={props.videoContent} />;
 
       default:
     }

@@ -3,11 +3,13 @@ import { createWrapper } from "next-redux-wrapper";
 import { loginReducer } from "./Reducers/Login";
 import { carouselReducer } from "./Reducers/Content/Carousel";
 import { secondaryReducer } from "./Reducers/Content/Secondary";
+import { aboutReducer } from "./Reducers/Content/About";
 
 const reducer = combineReducers({
   login: loginReducer,
   carousel: carouselReducer,
   secondary: secondaryReducer,
+  about: aboutReducer,
 });
 
 const makeStore = () =>

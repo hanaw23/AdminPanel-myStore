@@ -47,7 +47,7 @@ function ContentEditForm(props) {
           <label htmlFor="description">Description</label>
           <textarea
             id="description"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-indigo-700 focus:outline-blue-500"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-indigo-700 focus:outline-blue-500 pt-8"
             placeholder="Type Carousel Description"
             onChange={(event) => setDescription(event.target.value)}
             value={description}

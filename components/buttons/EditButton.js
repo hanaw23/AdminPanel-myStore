@@ -30,6 +30,7 @@ const EditButton = (props) => {
           nameContent={props.nameContent}
           descriptionContent={props.descriptionContent}
           imgContent={props.imgContent}
+          videoContent={props.videoContent}
           logoA={props.logoA}
           logoB={props.logoB}
           logoC={props.logoC}
