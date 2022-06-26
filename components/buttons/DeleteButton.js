@@ -21,7 +21,7 @@ const DeleteButton = (props) => {
       case "Content":
         return <ContentDeleteModal onClose={handleCloseDeleteModal} idContent={props.idContent} nameContent={props.nameContent} content={props.content} />;
       case "Product":
-        return <ProductDeleteModal onClose={handleCloseDeleteModal} productId={props.productId} productName={props.nameContent} />;
+        return <ProductDeleteModal onClose={handleCloseDeleteModal} productId={props.productId} productName={props.productName} />;
 
       default:
     }
