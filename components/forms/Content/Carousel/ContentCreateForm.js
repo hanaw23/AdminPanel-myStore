@@ -51,13 +51,13 @@ function ContentCreateForm(props) {
 
         <div className="mt-6 flex flex-col">
           <label htmlFor="name">Name:</label>
-          <input id="name" className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Input Carousel Name" value={name} onChange={(e) => setName(e.target.value)} />
+          <input id="name" className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Input Carousel Name" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="description">Description :</label>
           <textarea
             id="description"
-            className="text-indigo-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500 pt-8"
+            className="text-indigo-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8"
             placeholder="Type Carousel Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}

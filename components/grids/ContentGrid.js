@@ -58,8 +58,8 @@ const ContentGrid = () => {
                 {hoverAction ? (
                   <div className="mt-[195px] mr-[125px]">
                     <div className="flex text-gray-700 gap-6">
-                      <EditButton idContent={item.abc_id} nameContent={item.name} descriptionContent={item.description} videoContent={item.videoUrl} content="About" />
-                      <DeleteButton idContent={item.abc_id} nameContent={item.name} content="About" />
+                      <EditButton idContent={item.abc_id} nameContent={item.name} descriptionContent={item.description} videoContent={item.videoUrl} content="About" title="Content" />
+                      <DeleteButton idContent={item.abc_id} nameContent={item.name} content="About" title="Content" />
                     </div>
                   </div>
                 ) : (
@@ -91,8 +91,8 @@ const ContentGrid = () => {
                 {hoverAction2 ? (
                   <div className="mt-[195px] mr-[125px]">
                     <div className="flex text-gray-700 gap-6">
-                      <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} content="Carousel" />
-                      <DeleteButton idContent={item.pc_id} nameContent={item.name} content="Carousel" />
+                      <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} content="Carousel" title="Content" />
+                      <DeleteButton idContent={item.pc_id} nameContent={item.name} content="Carousel" title="Content" />
                     </div>
                   </div>
                 ) : (
@@ -124,8 +124,18 @@ const ContentGrid = () => {
                 {hoverAction3 ? (
                   <div className="mt-[195px] mr-[125px]">
                     <div className="flex text-gray-700 gap-6">
-                      <EditButton idContent={item.sc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} logoA={item.logoA} logoB={item.logoB} logoC={item.logoC} content="Secondary" />
-                      <DeleteButton idContent={item.sc_id} nameContent={item.name} content="Secondary" />
+                      <EditButton
+                        idContent={item.sc_id}
+                        nameContent={item.name}
+                        descriptionContent={item.description}
+                        imgContent={item.imageUrl}
+                        logoA={item.logoA}
+                        logoB={item.logoB}
+                        logoC={item.logoC}
+                        content="Secondary"
+                        title="Content"
+                      />
+                      <DeleteButton idContent={item.sc_id} nameContent={item.name} content="Secondary" title="Content" />
                     </div>
                   </div>
                 ) : (
