@@ -35,7 +35,7 @@ const ContentGrid = () => {
 
   return (
     <div className="flex gap-20">
-      <div className="grid grid-cols-3 gap-20 ml-[75px]">
+      <div className="grid grid-cols-3 gap-10">
         <div>
           {about.content?.length === 0 ? (
             <div className="border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer">
