@@ -14,7 +14,9 @@ export default function Sidebar() {
   const [isCollapsible, setIsCollapsible] = useState(false);
 
   const router = useRouter();
-  const user = GetUser();
+  // const user = GetUser();
+
+  // console.log(user.username);
 
   const activeMenu = useMemo(() => menuItems.find((item) => item.link === router.pathname), [router.pathname]);
 
@@ -45,11 +47,14 @@ export default function Sidebar() {
               </button>
             )}
           </div>
-          <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user.username}</div>
+          {/* <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user.username}</div> */}
           <div className="flex flex-col items-start mt-24 gap-4 text-m text-gray-700">
             {menuItems.map((item) => (
               <>
-                <div className={`flex hover:border items-center cursor-pointer hover:border-gray-400 hover:shadow-md px-3 rounded-[10px] w-full overflow-hidden whitespace-nowrap ${activeMenu ? "focus:border-gray-400" : "bg-transparent"}`}>
+                <div
+                  className={`flex hover:border items-center cursor-pointer hover:border-gray-400 hover:shadow-md px-3 rounded-[10px] w-full overflow-hidden whitespace-nowrap ${activeMenu ? "focus:border-gray-400" : "bg-transparent"}`}
+                  key={item.id}
+                >
                   <Link href={item.link}>
                     <a className=" flex py-4 px-3 items-center w-full h-full gap-5">
                       {item.icon}

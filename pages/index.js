@@ -6,7 +6,7 @@ const Home = () => {
   const router = useRouter();
   useEffect(() => {
     return () => {
-      router.push("/main");
+      router.push("/contentManagement");
     };
   }, []);
 };

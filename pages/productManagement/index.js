@@ -1,9 +1,18 @@
 import Layout from "../../components/Layout";
+import LoadingSkeleton from "../../components/Loading/LoadingSkeleton";
 
 export default function productManagement() {
   return (
     <Layout>
-      <div>Product Management</div>
+      <div className="z-0">
+        <div className="flex justify-between h-14"></div>
+        <div>
+          <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">Products Management</h1>
+        </div>
+        <div className=" -ml-[70px] mt-20 mx-center">
+          <LoadingSkeleton />
+        </div>
+      </div>
     </Layout>
   );
 }

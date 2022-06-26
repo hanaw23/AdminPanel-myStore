@@ -61,7 +61,7 @@ const ContentDeleteModal = (props) => {
 
   return ReactDOM.createPortal(
     <>
-      <div className={`${style.animated} ${style.faster} ${style.fadeIn} main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex  justify-center items-center`} style={{ background: "rgba(0,0,0,.7)" }}>
+      <div className={`${style.animated} ${style.faster} ${style.fadeIn} main-modal fixed w-full h-100 inset-0 z-50 overflow-auto flex  justify-center items-center`} style={{ background: "rgba(0,0,0,.7)" }}>
         <OutsideClickHandler onOutsideClick={props.onClose}>
           <div className="bg-gray-400 flex align-center justify-center">
             <div>
