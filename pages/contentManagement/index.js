@@ -1,6 +1,8 @@
 import ContentGrid from "../../components/grids/ContentGrid";
+import { HasToken } from "../../utility";
 
-export default function contentManagement() {
+const contentManagement = () => {
+  HasToken();
   return (
     <div className="z-0">
       <div className="flex justify-between h-14">
@@ -8,14 +10,15 @@ export default function contentManagement() {
         <LogoutButton logOut={handleLogOut} /> */}
       </div>
       <div className="ml-16">
-        <h1 className=" font-bold text-[30px] text-center text-gray-800 mt-2">Contents Management</h1>
+        <h1 className=" font-bold text-[30px] text-center text-gray-800 mt-2">
+          Contents Management
+        </h1>
       </div>
       <div className="ml-40 mt-20 mx-center">
         <ContentGrid />
       </div>
-
-      {/* <Drawer isOpen={openAdd} title="Add Product" onClose={handleCloseAdd} />
-      <Drawer isOpen={openEdit} title="Edit Product" onClose={handleCloseEdit} /> */}
     </div>
   );
-}
+};
+
+export default contentManagement;
