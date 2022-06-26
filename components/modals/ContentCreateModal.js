@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import style from "./Modal.module.css";
 import ContentCreateForm from "../forms/Content/Carousel/ContentCreateForm";
 import SecondaryCreateForm from "../forms/Content/Secondary/SecondaryCreateForm";
+import AboutCreateForm from "../forms/Content/About/AboutCreateForm";
 
 const ContentCreateModal = (props) => {
   const switchModalCase = () => {
@@ -11,7 +12,8 @@ const ContentCreateModal = (props) => {
         return <ContentCreateForm onClose={props.onClose} />;
       case "Secondary":
         return <SecondaryCreateForm onClose={props.onClose} />;
-
+      case "About":
+        return <AboutCreateForm onClose={props.onClose} />;
       default:
     }
   };
@@ -22,7 +24,7 @@ const ContentCreateModal = (props) => {
           <div>
             <div className="w-[800px] h-[650px] bg-white rounded-[8px] px-6 py-6">
               <div>
-                <div className="text-xl font-bold">Create {props.content}</div>
+                <div className="text-xl font-bold text-gray-800">Create {props.content}</div>
                 <div className="mt-6">{switchModalCase()}</div>
               </div>
             </div>
