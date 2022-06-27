@@ -84,7 +84,7 @@ const ContentGrid = () => {
               <div
                 key={item.pc_id}
                 // className={`border ${`bg-${item.imageUrl}`}
-                className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer"
+                className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer "
                 onMouseEnter={() => setHoverAction2(true)}
                 onMouseLeave={() => setHoverAction2(!hoverAction2)}
               >
