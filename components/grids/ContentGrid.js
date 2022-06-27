@@ -104,7 +104,7 @@ const ContentGrid = () => {
         </div>
         <div>
           {secondary.content?.length === 0 ? (
-            <div className=" ease-in-out duration-500 border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer h:48">
+            <div className=" ease-in-out duration-500 border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer hover:h-48">
               <div className="flex flex-col justify-center mr-[100px] gap-2 ">
                 <div className="ml-[50px]">
                   <CreateButton content="Secondary" />
