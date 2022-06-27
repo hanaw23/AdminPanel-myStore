@@ -31,10 +31,10 @@ export const addProductAxios = (imageUrl, name, category, description, price, ro
 
       const response = await axios.post(`${UrlWebAdmin()}createProduct`, formData);
 
-      router.push("/productManagement");
       window.location.reload(true);
       dispatch(addProduct(response.data.result));
       setSuccess(`Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`);
+      router.push("/productManagement");
     } catch (error) {
       setFailed(error);
     }
@@ -53,10 +53,10 @@ export const editProductAxios = (productId, name, category, description, price, 
         price: price,
       });
       if (response) {
-        router.push("/productManagement");
         window.location.reload(true);
         setSuccess(`Product ID : ${productId} and Product Name : ${name}`);
         dispatch(editProduct(response.data.result));
+        router.push("/productManagement");
       }
     } catch (error) {
       setFailed(error);
@@ -72,10 +72,10 @@ export const deleteProductAxios = (productId, productName, router, setFailed, se
         product_id: productId,
       });
       if (response) {
-        router.push("/productManagement");
         window.location.reload(true);
         setSuccess(`Product Name : ${productName}`);
         dispatch(deleteProduct(response.data.result));
+        router.push("/productManagement");
       }
     } catch (error) {
       setFailed(error);
