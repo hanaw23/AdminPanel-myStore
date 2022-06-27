@@ -24,7 +24,7 @@ export default function productManagement() {
       <div className="z-0">
         <div className="flex justify-between h-14"></div>
         <div>
-          <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">Products Management</h1>
+          <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">Product Management</h1>
         </div>
         <div className=" ml-[80px] mt-10 mx-center">
           <div className="flex justify-end mr-16">

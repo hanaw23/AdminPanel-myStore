@@ -48,7 +48,7 @@ function ProductAddForm(props) {
 
   return (
     <>
-      <div className="text-sm bg-gray-300 text-gray-700">
+      <div className="text-sm bg-gray-100 text-gray-700">
         <div className="mt-4">
           <label htmlFor="photo" className="mb-2">
             Upload Product Photo :
@@ -56,7 +56,7 @@ function ProductAddForm(props) {
           <div className="flex justify-center align-center ml-[150px] h-[160px] w-[175px] mt-2">
             {imageUrlPreview !== null ? <img src={imageUrlPreview} alt="preview product" id="frame" height={130} width={165} /> : <ImageIcon height={100} width={130} />}
           </div>
-          <input type="file" accept="image/*" className="text-gray-300 mt-2" onChange={imageHandlerPreview} id="photo" />
+          <input type="file" accept="image/*" className="text-gray-700 mt-2" onChange={imageHandlerPreview} id="photo" />
         </div>
 
         <div className="mt-4 flex flex-col">
@@ -89,10 +89,10 @@ function ProductAddForm(props) {
         </div>
         <div>
           <div className="flex gap-8 mt-8 justify-center">
-            <button className="border border-transparent bg-indigo-500 text-sm w-[255px] h-12 rounded text-white font-bold" onClick={addProductSubmit} type="submit">
+            <button className="border border-transparent bg-indigo-500 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" onClick={addProductSubmit} type="submit">
               Submit
             </button>
-            <button className="border border-indigo-400 bg-white-700 text-sm w-[255px] h-12 rounded font-bold text-gray-700" onClick={props.onClose}>
+            <button className="border border-indigo-400 bg-white-700 text-sm w-[255px] h-12 rounded-[10px] font-bold text-indigo-700" onClick={props.onClose}>
               Cancel
             </button>
           </div>
