@@ -38,7 +38,7 @@ const ContentGrid = () => {
       <div className="grid grid-cols-3 gap-10">
         <div>
           {about.content?.length === 0 ? (
-            <div className="border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer">
+            <div className=" ease-in-out duration-500 border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer hover:h-48 ">
               <div className="flex flex-col justify-center mr-[100px] gap-2">
                 <div className="ml-[30px]">
                   <CreateButton content="About" />
@@ -71,7 +71,7 @@ const ContentGrid = () => {
         </div>
         <div>
           {carousel.content?.length === 0 ? (
-            <div className="border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer">
+            <div className="border ease-in-out duration-500 bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer hover:h-48">
               <div className="flex flex-col justify-center mr-[100px] gap-2">
                 <div className="ml-[40px]">
                   <CreateButton content="Carousel" />
@@ -84,7 +84,7 @@ const ContentGrid = () => {
               <div
                 key={item.pc_id}
                 // className={`border ${`bg-${item.imageUrl}`}
-                className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer "
+                className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer"
                 onMouseEnter={() => setHoverAction2(true)}
                 onMouseLeave={() => setHoverAction2(!hoverAction2)}
               >
@@ -104,7 +104,7 @@ const ContentGrid = () => {
         </div>
         <div>
           {secondary.content?.length === 0 ? (
-            <div className="border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer">
+            <div className=" ease-in-out duration-500 border bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer h:48">
               <div className="flex flex-col justify-center mr-[100px] gap-2 ">
                 <div className="ml-[50px]">
                   <CreateButton content="Secondary" />

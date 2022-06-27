@@ -52,12 +52,15 @@ export default function Sidebar() {
             {menuItems.map((item) => (
               <>
                 <div
-                  className={`flex hover:border items-center cursor-pointer hover:border-gray-400 hover:shadow-md px-3 rounded-[10px] w-full overflow-hidden whitespace-nowrap ${activeMenu ? "focus:border-gray-400" : "bg-transparent"}`}
+                  className={`flex hover:border items-center cursor-pointer hover:border-gray-400 hover:shadow-md px-3 rounded-[10px] w-full overflow-hidden whitespace-nowrap focus:border-gray-400 ${
+                    activeMenu ? "border-gray-400" : "bg-transparent"
+                  }`}
                   key={item.id}
                 >
                   <Link href={item.link}>
-                    <a className=" flex py-4 px-3 items-center w-full h-full gap-5">
+                    <a className=" flex py-4 px-3 items-center w-full h-full gap-5 focus:text-indigo-600 active:text-indigo-600">
                       {item.icon}
+
                       {!toggleCollapse && <span>{item.label}</span>}
                     </a>
                   </Link>

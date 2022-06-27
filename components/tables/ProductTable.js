@@ -6,6 +6,7 @@ import DataTable from "react-data-table-component";
 
 import ProductTableHeader from "../../common/TableHeader/ProductTableHeader";
 import SearchFilter from "../filters/SearchFilter";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 import { getProductAxios } from "../../store/Action/ProductManagement";
 
@@ -40,7 +41,7 @@ function ProductTable() {
     <>
       <SearchFilter filterValue={query} filterChange={(e) => setQuery(e.target.value)} />
       <div className="block min-w-full shadow rounded-lg overflow-x-auto whitespace-nowrap -ml-4 py-3 w-80 mt-6 xl:text-base 2xl:text-base text-sm">
-        <DataTable columns={ProductTableHeader.columns} data={handleData(products.product)} pagination progressPending={pending} highlightOnHovers defaultSortField="name" />
+        <DataTable columns={ProductTableHeader.columns} data={handleData(products.product)} pagination progressPending={pending} progressComponent={<LoadingSpinner />} highlightOnHovers defaultSortField="name" />
       </div>
     </>
   );

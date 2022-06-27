@@ -34,7 +34,7 @@ function ProductEditForm(props) {
 
   return (
     <>
-      <div className="text-sm bg-gray-300 text-gray-700 ">
+      <div className="text-sm bg-gray-100 text-gray-700 ">
         <div className="mt-4">
           <label htmlFor="photo" className="mb-2">
             Product Photo :
@@ -74,10 +74,10 @@ function ProductEditForm(props) {
 
         <div>
           <div className="flex gap-8 mt-12 justify-center">
-            <button className="border border-transparent bg-indigo-500 text-sm w-[255px] h-12 rounded text-white font-bold" onClick={editProductSubmit} type="submit">
+            <button className="border border-transparent bg-indigo-500 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" onClick={editProductSubmit} type="submit">
               Submit
             </button>
-            <button className="border border-indigo-400 bg-white-700 text-sm w-[255px] h-12 rounded font-bold text-gray-700" onClick={props.onClose}>
+            <button className="border border-indigo-400 bg-white-700 text-sm w-[255px] h-12 rounded-[10px] font-bold text-indigo-700" onClick={props.onClose}>
               Cancel
             </button>
           </div>
