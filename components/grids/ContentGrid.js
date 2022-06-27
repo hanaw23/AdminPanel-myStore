@@ -70,8 +70,8 @@ const ContentGrid = () => {
           )}
         </div>
         <div>
-          {carousel.content?.length === 0 ? (
-            <div className="border ease-in-out duration-500 bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer hover:h-48">
+          {carousel.content?.length < 3 ? (
+            <div className="border ease-in-out duration-500 bg-gray-300 bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end shadow-lg shadow-gray-400 border-transparent cursor-pointer hover:h-48 mb-6">
               <div className="flex flex-col justify-center mr-[100px] gap-2">
                 <div className="ml-[40px]">
                   <CreateButton content="Carousel" />
@@ -79,28 +79,27 @@ const ContentGrid = () => {
                 <h1 className="text-m text-gray-500 font-semibold">Create Carousel</h1>
               </div>
             </div>
-          ) : (
-            carousel.content?.map((item) => (
-              <div
-                key={item.pc_id}
-                // className={`border ${`bg-${item.imageUrl}`}
-                className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer "
-                onMouseEnter={() => setHoverAction2(true)}
-                onMouseLeave={() => setHoverAction2(!hoverAction2)}
-              >
-                {hoverAction2 ? (
-                  <div className="mt-[195px] mr-[125px]">
-                    <div className="flex text-gray-700 gap-6">
-                      <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} content="Carousel" title="Content" />
-                      <DeleteButton idContent={item.pc_id} nameContent={item.name} content="Carousel" title="Content" />
-                    </div>
+          ) : null}
+          {carousel.content?.map((item) => (
+            <div
+              key={item.pc_id}
+              // className={`border ${`bg-${item.imageUrl}`}
+              className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer mb-6"
+              onMouseEnter={() => setHoverAction2(true)}
+              onMouseLeave={() => setHoverAction2(!hoverAction2)}
+            >
+              {hoverAction2 ? (
+                <div className="mt-[195px] mr-[125px]">
+                  <div className="flex text-gray-700 gap-6">
+                    <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} content="Carousel" title="Content" />
+                    <DeleteButton idContent={item.pc_id} nameContent={item.name} content="Carousel" title="Content" />
                   </div>
-                ) : (
-                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
-                )}
-              </div>
-            ))
-          )}
+                </div>
+              ) : (
+                <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
+              )}
+            </div>
+          ))}
         </div>
         <div>
           {secondary.content?.length === 0 ? (
