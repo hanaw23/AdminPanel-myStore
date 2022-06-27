@@ -12,13 +12,13 @@ import { RemoveUserLocal, GetUser } from "../utility";
 export default function Sidebar() {
   const [toggleCollapse, setToggleCollapse] = useState(false);
   const [isCollapsible, setIsCollapsible] = useState(false);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
   const router = useRouter();
 
-  useEffect(() => {
-    setUser(GetUser());
-  }, []);
+  // useEffect(() => {
+  //   setUser(GetUser());
+  // }, []);
 
   const activeMenu = useMemo(() => menuItems.find((item) => item.link === router.pathname), [router.pathname]);
 
@@ -49,7 +49,7 @@ export default function Sidebar() {
               </button>
             )}
           </div>
-          <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user.username}</div>
+          {/* <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user.username}</div> */}
           <div className="flex flex-col items-start mt-24 gap-4 text-m text-gray-700">
             {menuItems.map((item) => (
               <>
