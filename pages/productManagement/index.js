@@ -7,6 +7,8 @@ import ProductTable from "../../components/tables/ProductTable";
 import AddButton from "../../components/buttons/AddButton";
 import ProductDrawer from "../../components/drawers/ProductDrawer";
 
+import { ProtectedRoute } from "../../middleware/ProtectedRoute";
+
 export default function productManagement() {
   const [openAdd, setOpenAdd] = useState(false);
 
@@ -19,6 +21,8 @@ export default function productManagement() {
     window.location.reload(true);
   };
 
+  ProtectedRoute();
+  
   return (
     <Layout>
       <div className="z-0">

@@ -49,7 +49,7 @@ export default function Sidebar() {
               </button>
             )}
           </div>
-          <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user.username}</div>
+          <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user && user.username}</div>
           <div className="flex flex-col items-start mt-24 gap-4 text-m text-gray-700">
             {menuItems.map((item) => (
               <div
