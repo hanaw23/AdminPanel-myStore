@@ -17,6 +17,7 @@ const ContentGrid = () => {
 
   const [hoverAction, setHoverAction] = useState(false);
   const [hoverAction2, setHoverAction2] = useState(false);
+  const [hoverCarousel, setHoverCarousel] = useState("");
   const [hoverAction3, setHoverAction3] = useState(false);
 
   const dispatch = useDispatch();
@@ -32,6 +33,16 @@ const ContentGrid = () => {
   useEffect(() => {
     dispatch(axiosGetAbout(setAbout));
   }, []);
+
+  const handleHoverCarousel = (id) => {
+    setHoverAction2(true);
+    setHoverCarousel(`${id}`);
+  };
+
+  const handleOutHoverCarousel = () => {
+    setHoverAction2(!hoverAction2);
+    setHoverCarousel("");
+  };
 
   return (
     <div className="flex gap-20">
@@ -80,16 +91,17 @@ const ContentGrid = () => {
               </div>
             </div>
           ) : null}
-          {carousel.content?.map((item) => (
+
+          {carousel.content?.map((item, i) => (
             <div
               key={item.pc_id}
               // className={`border ${`bg-${item.imageUrl}`}
               className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer mb-6"
-              onMouseEnter={() => setHoverAction2(true)}
-              onMouseLeave={() => setHoverAction2(!hoverAction2)}
+              onMouseEnter={() => handleHoverCarousel(i)}
+              onMouseLeave={() => handleOutHoverCarousel()}
             >
-              {hoverAction2 ? (
-                <div className="mt-[195px] mr-[125px]">
+              {hoverAction2 && hoverCarousel === `${i}` ? (
+                <div className="mt-[195px] mr-[125px]" key={item.pc_id} id={i}>
                   <div className="flex text-gray-700 gap-6">
                     <EditButton idContent={item.pc_id} nameContent={item.name} descriptionContent={item.description} imgContent={item.imageUrl} content="Carousel" title="Content" />
                     <DeleteButton idContent={item.pc_id} nameContent={item.name} content="Carousel" title="Content" />

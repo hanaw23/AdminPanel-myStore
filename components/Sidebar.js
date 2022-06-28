@@ -20,10 +20,7 @@ export default function Sidebar() {
     setUser(GetUser());
   }, []);
 
-  const activeMenu = useMemo(
-    () => menuItems.find((item) => item.link === router.pathname),
-    [router.pathname]
-  );
+  const activeMenu = useMemo(() => menuItems.find((item) => item.link === router.pathname), [router.pathname]);
 
   const onMouseOver = () => {
     setIsCollapsible(!isCollapsible);
@@ -40,45 +37,19 @@ export default function Sidebar() {
 
   return (
     <>
-      <div
-        className={`h-screen px-4 pt-8 pb-4 bg-gray-300 flex flex-col justify-between ${
-          !toggleCollapse ? "w-[350px]" : "w-[80px]"
-        } `}
-        onMouseEnter={onMouseOver}
-        onMouseLeave={onMouseOver}
-      >
+      <div className={`h-screen px-4 pt-8 pb-4 bg-gray-300 flex flex-col justify-between ${!toggleCollapse ? "w-[350px]" : "w-[80px]"} `} onMouseEnter={onMouseOver} onMouseLeave={onMouseOver}>
         <div className="flex flex-col">
           <div className="flex items-center justify-between relative">
-            <div
-              className={`items-center pl-1 gap-4 ${
-                toggleCollapse ? "hidden" : "flex"
-              }`}
-            >
-              <img
-                src="assets/svg/myStore.svg"
-                alt="logo"
-                height={120}
-                width={120}
-              />
+            <div className={`items-center pl-1 gap-4 ${toggleCollapse ? "hidden" : "flex"}`}>
+              <img src="assets/svg/myStore.svg" alt="logo" height={120} width={120} />
             </div>
             {isCollapsible && (
-              <button
-                className={`p-4 rounded  absolute right-0 cursor-pointer ${
-                  toggleCollapse ? "rotate-180" : "rotate-0"
-                }`}
-                onClick={handleSidebarToggle}
-              >
+              <button className={`p-4 rounded  absolute right-0 cursor-pointer ${toggleCollapse ? "rotate-180" : "rotate-0"}`} onClick={handleSidebarToggle}>
                 <CollapseLeftIcon />
               </button>
             )}
           </div>
-          <div
-            className={`ml-[10px] text-sm text-gray-500 font-semibold ${
-              toggleCollapse ? "hidden" : "flex"
-            }`}
-          >
-            Welcome, {user.username}
-          </div>
+          <div className={`ml-[10px] text-sm text-gray-500 font-semibold ${toggleCollapse ? "hidden" : "flex"}`}>Welcome, {user.username}</div>
           <div className="flex flex-col items-start mt-24 gap-4 text-m text-gray-700">
             {menuItems.map((item) => (
               <div
@@ -98,15 +69,10 @@ export default function Sidebar() {
             ))}
           </div>
         </div>
-        <button
-          className=" w-[110px] h-[50px] flex cursor-pointer pl-1 mb-4 "
-          onClick={handleLogOutAdmin}
-        >
+        <button className=" w-[110px] h-[50px] flex cursor-pointer pl-1 mb-4 " onClick={handleLogOutAdmin}>
           <div className="flex py-2 px-2">
             <LogOutIcon />
-            {!toggleCollapse && (
-              <div className="ml-2 text-sm mt-1 font-semibold">Logout</div>
-            )}
+            {!toggleCollapse && <div className="ml-2 text-sm mt-1 font-semibold">Logout</div>}
           </div>
         </button>
       </div>
