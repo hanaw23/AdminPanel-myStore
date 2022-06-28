@@ -71,7 +71,7 @@ function ProductAddForm(props) {
         </div>
         <div className="mt-8 flex flex-col">
           <label htmlFor="category">Category :</label>
-          <Select options={Categories} onChange={handleChangeCategory} className="text-gray-700 w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Select Category" isClearable />
+          <Select id="selectbox" instanceId="selectbox" options={Categories} onChange={handleChangeCategory} className="text-gray-700 w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Select Category" isClearable />
         </div>
         <div className="mt-8 flex flex-col">
           <label htmlFor="description">Description :</label>
