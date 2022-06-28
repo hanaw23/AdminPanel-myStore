@@ -35,19 +35,13 @@ function ContentEditForm(props) {
 
         <div className="mt-6 flex flex-col">
           <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-indigo-700 focus:outline-blue-500"
-            placeholder="Input Carousel Name"
-            onChange={(event) => setName(event.target.value)}
-            value={name}
-          />
+          <input id="name" className="px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-indigo-700 focus:outline-blue-500" placeholder="Input Carousel Name" onChange={(event) => setName(event.target.value)} value={name} />
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="description">Description</label>
           <textarea
             id="description"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-indigo-700 focus:outline-blue-500"
+            className="px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-indigo-700 focus:outline-blue-500 pt-8"
             placeholder="Type Carousel Description"
             onChange={(event) => setDescription(event.target.value)}
             value={description}
@@ -66,7 +60,7 @@ function ContentEditForm(props) {
         </div>
       </div>
       {success.length !== 0 && <SuccessMessage message={success} actionTitle="Edit Carousel" />}
-      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Add Product" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Edit Carousel" />}
     </>
   );
 }

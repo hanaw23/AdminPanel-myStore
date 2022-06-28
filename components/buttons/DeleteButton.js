@@ -1,6 +1,7 @@
 import { useState } from "react";
-import ContentDeleteModal from "../modals/ContentDeleteModal";
 
+import ContentDeleteModal from "../modals/ContentDeleteModal";
+import ProductDeleteModal from "../modals/ProductDeleteModal";
 import DeleteIcon from "../svg/DeleteIcon";
 
 const DeleteButton = (props) => {
@@ -15,6 +16,17 @@ const DeleteButton = (props) => {
     window.location.reload(true);
   };
 
+  const switchModalCase = () => {
+    switch (props.title) {
+      case "Content":
+        return <ContentDeleteModal onClose={handleCloseDeleteModal} idContent={props.idContent} nameContent={props.nameContent} content={props.content} />;
+      case "Product":
+        return <ProductDeleteModal onClose={handleCloseDeleteModal} productId={props.productId} productName={props.productName} />;
+
+      default:
+    }
+  };
+
   return (
     <>
       <div>
@@ -22,7 +34,7 @@ const DeleteButton = (props) => {
           <DeleteIcon />
         </button>
       </div>
-      {openDeleteModal ? <ContentDeleteModal onClose={handleCloseDeleteModal} idContent={props.idContent} nameContent={props.nameContent} content={props.content} /> : null}
+      {openDeleteModal ? switchModalCase() : null}
     </>
   );
 };

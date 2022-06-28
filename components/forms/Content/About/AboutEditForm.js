@@ -6,11 +6,12 @@ import { useDispatch } from "react-redux";
 import SuccessMessage from "../../../modals/SuccessMessage";
 import ErrorMessage from "../../../modals/ErrorMessage";
 
-import { axiosEditSecondary } from "../../../../store/Action/Content/Secondary";
+import { axiosEditAbout } from "../../../../store/Action/Content/About";
 
-function SecondaryEditForm(props) {
+function AboutEditForm(props) {
   const [name, setName] = useState(props.nameContent);
   const [description, setDescription] = useState(props.descriptionContent);
+  const [videoUrl, setVideoUrl] = useState(props.videoContent);
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
 
@@ -19,26 +20,12 @@ function SecondaryEditForm(props) {
   const dispatch = useDispatch();
 
   const editContentSubmit = () => {
-    dispatch(axiosEditSecondary(idContent, name, description, router, setSuccess, setFailed));
+    dispatch(axiosEditAbout(idContent, name, description, videoUrl, router, setSuccess, setFailed));
   };
 
   return (
     <>
       <div className="text-sm bg-white overflow-auto">
-        <div className="mt-1 mb-4">
-          <div className="ml-[235px]">
-            <img src={props.imgContent} alt="Background Secondary" height={80} width={280} />
-          </div>
-        </div>
-
-        <div>
-          <div className="flex justify-center gap-20 mb-1 ">
-            <img src={props.logoA} alt="Logo A" height={50} width={50} />
-            <img src={props.logoB} alt="Logo B" height={50} width={50} />
-            <img src={props.logoC} alt="Logo C" height={50} width={50} />
-          </div>
-        </div>
-
         <div className="mt-4 flex flex-col">
           <label htmlFor="name" className="text-indigo-700">
             Name
@@ -46,11 +33,12 @@ function SecondaryEditForm(props) {
           <input
             id="name"
             className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
-            placeholder="Input Secondary Name"
+            placeholder="Input Carousel Name"
             onChange={(event) => setName(event.target.value)}
             value={name}
           />
         </div>
+
         <div className="mt-4 flex flex-col">
           <label htmlFor="description" className="text-indigo-700">
             Description
@@ -58,14 +46,28 @@ function SecondaryEditForm(props) {
           <textarea
             id="description"
             className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500 pt-8"
-            placeholder="Type Secondary Description"
+            placeholder="Type About Description"
             onChange={(event) => setDescription(event.target.value)}
             value={description}
           />
         </div>
 
+        <div className="mt-4 flex flex-col">
+          <label htmlFor="videoUrl" className="text-indigo-700">
+            Video Url
+          </label>
+          <input
+            id="videoUrl"
+            type="text"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500"
+            placeholder="Type About Description"
+            onChange={(event) => setVideoUrl(event.target.value)}
+            value={videoUrl}
+          />
+        </div>
+
         <div>
-          <div className="flex gap-8 mt-10 justify-center py-2">
+          <div className="flex gap-8 mt-24 justify-center py-2">
             <button className="border border-transparent bg-indigo-700 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" type="submit" onClick={editContentSubmit}>
               Submit
             </button>
@@ -75,10 +77,10 @@ function SecondaryEditForm(props) {
           </div>
         </div>
       </div>
-      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Edit Carousel" />}
-      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Add Product" />}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Edit About" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Edit About" />}
     </>
   );
 }
 
-export default SecondaryEditForm;
+export default AboutEditForm;
