@@ -7,6 +7,6 @@ export const ProtectedRoute = () => {
   if (!token && !user) {
     return Router.push("/login");
   } else if (token && user) {
-    return Router.replace("/contentManagement");
+    return Router.push("#");
   }
 };
