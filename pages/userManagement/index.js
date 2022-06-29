@@ -1,7 +1,11 @@
 import Layout from "../../components/Layout";
 import LoadingSkeleton from "../../components/Loading/LoadingSkeleton";
+import { ProtectedRoute } from "../../middleware/ProtectedRoute";
 
 export default function userManagement() {
+
+  ProtectedRoute();
+  
   return (
     <Layout>
       <div className="z-0">
