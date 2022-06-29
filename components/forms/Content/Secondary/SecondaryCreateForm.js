@@ -131,8 +131,8 @@ function SecondaryCreateForm(props) {
           </div>
         </div>
       </div>
-      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Create Carousel" />}
-      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Create Carousel" />}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Create Secondary" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Create Secondary" />}
     </>
   );
 }
