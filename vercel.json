@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "https://mystore-adminpanel-nextjs.vercel.app"
+        }
+      ],
+      "destination": "/login/:path*"
+    }
+  ]
+}

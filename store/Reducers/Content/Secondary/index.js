@@ -27,5 +27,5 @@ const secondarySlice = createSlice({
   },
 });
 
-export const { secondaryEdit, secondaryDelete, secondaryGet } = secondarySlice.actions;
+export const { secondaryEdit, secondaryDelete, secondaryGet, secondaryCreate } = secondarySlice.actions;
 export const secondaryReducer = secondarySlice.reducer;
