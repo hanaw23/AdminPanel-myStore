@@ -13,16 +13,16 @@ const redirectConfig = {
   //   ];
   // },
 
-  // basePath: "/login",
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/login",
-        permanent: true,
-      },
-    ];
-  },
+  basePath: "/login",
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/",
+  //       destination: "/login",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
 };
 
 module.exports = { nextConfig, redirectConfig };
