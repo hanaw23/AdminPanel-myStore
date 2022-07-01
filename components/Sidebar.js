@@ -32,7 +32,7 @@ export default function Sidebar() {
 
   const handleLogOutAdmin = () => {
     RemoveUserLocal();
-    router.push("/login");
+    router.replace("/login");
   };
 
   return (

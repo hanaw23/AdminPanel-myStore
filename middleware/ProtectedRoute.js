@@ -5,7 +5,7 @@ export const ProtectedRoute = () => {
   const user = GetUser();
   const token = GetToken();
   if (!token && !user) {
-    return Router.push("/login");
+    return Router.replace("/login");
   } else if (token && user) {
     return Router.push("#");
   }
