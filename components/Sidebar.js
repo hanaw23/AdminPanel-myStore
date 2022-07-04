@@ -41,7 +41,7 @@ export default function Sidebar() {
         <div className="flex flex-col">
           <div className="flex items-center justify-between relative">
             <div className={`items-center pl-1 gap-4 ${toggleCollapse ? "hidden" : "flex"}`}>
-              <img src="assets/svg/myStore.svg" alt="logo" height={120} width={120} />
+              <img src="assets/svg/MyStore.svg" alt="logo" height={120} width={120} />
             </div>
             {isCollapsible && (
               <button className={`p-4 rounded  absolute right-0 cursor-pointer ${toggleCollapse ? "rotate-180" : "rotate-0"}`} onClick={handleSidebarToggle}>
