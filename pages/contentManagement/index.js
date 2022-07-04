@@ -5,11 +5,13 @@ import ContentGrid from "../../components/grids/ContentGrid";
 import Layout from "../../components/Layout";
 import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 
-import { HasToken } from "../../utility";
+import { ProtectedRoute } from "../../middleware/ProtectedRoute";
 
 const contentManagement = () => {
   const [loading, setLoading] = useState(true);
 
+  ProtectedRoute();
+  
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
@@ -17,7 +19,6 @@ const contentManagement = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  HasToken();
   return (
     <Layout>
       <div className="z-0">

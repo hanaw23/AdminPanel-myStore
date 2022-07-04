@@ -1,5 +1,6 @@
 import Router from "next/router";
-import { GetToken, GetUser } from "../utility";
+import { useEffect } from "react";
+import { GetToken, GetUser, HasToken } from "../utility";
 
 export const ProtectedRoute = () => {
   const user = GetUser();
