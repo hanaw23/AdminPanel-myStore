@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import { GetToken, GetUser, HasToken } from "../utility";
 
 export const ProtectedRoute = () => {
-  if (!GetToken() && !GetUser() && !HasToken()) {
+  const token = GetToken();
+  const user = GetUser();
+  const hasToken = HasToken();
+  if (!token && !user && !hasToken) {
     return Router.push("/login");
   } else if (GetToken() && GetUser() && HasToken()) {
     return HasToken();
