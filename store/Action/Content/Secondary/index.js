@@ -1,11 +1,6 @@
 import axios from "axios";
 
-import {
-  secondaryEdit,
-  secondaryDelete,
-  secondaryCreate,
-  secondaryGet,
-} from "../../../Reducers/Content/Secondary";
+import { secondaryEdit, secondaryDelete, secondaryCreate, secondaryGet } from "../../../Reducers/Content/Secondary";
 import { UrlWebAdmin } from "../../../../static";
 
 export const axiosGetSecondary = (setSecondary) => {
@@ -22,17 +17,7 @@ export const axiosGetSecondary = (setSecondary) => {
   };
 };
 
-export const axiosCreateSecondary = (
-  name,
-  imageUrl,
-  logoA,
-  logoB,
-  logoC,
-  description,
-  router,
-  setSuccess,
-  setFailed
-) => {
+export const axiosCreateSecondary = (name, imageUrl, logoA, logoB, logoC, description, router, setSuccess, setFailed) => {
   return async (dispatch) => {
     try {
       const formData = new FormData();
@@ -43,10 +28,7 @@ export const axiosCreateSecondary = (
       formData.append("name", name);
       formData.append("description", description);
 
-      const response = await axios.post(
-        `${UrlWebAdmin()}secondaryContent/create`,
-        formData
-      );
+      const response = await axios.post(`${UrlWebAdmin()}secondaryContent/create`, formData);
 
       router.push("/contentManagement");
       window.location.reload(true);
@@ -58,23 +40,13 @@ export const axiosCreateSecondary = (
   };
 };
 
-export const axiosEditSecondary = (
-  idContent,
-  name,
-  description,
-  router,
-  setSuccess,
-  setFailed
-) => {
+export const axiosEditSecondary = (idContent, name, description, router, setSuccess, setFailed) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(
-        `${UrlWebAdmin()}secondaryContent/update/${idContent}`,
-        {
-          name: name,
-          description: description,
-        }
-      );
+      const response = await axios.post(`${UrlWebAdmin()}secondaryContent/update/${idContent}`, {
+        name: name,
+        description: description,
+      });
 
       if (response) {
         router.push("/contentManagement");
@@ -88,18 +60,10 @@ export const axiosEditSecondary = (
   };
 };
 
-export const axiosDeleteSecondary = (
-  idContent,
-  name,
-  router,
-  setSuccess,
-  setFailed
-) => {
+export const axiosDeleteSecondary = (idContent, name, router, setSuccess, setFailed) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(
-        `${UrlWebAdmin()}secondaryContent/delete/${idContent}`
-      );
+      const response = await axios.post(`${UrlWebAdmin()}secondaryContent/delete/${idContent}`);
       console.log(response);
 
       if (response) {
