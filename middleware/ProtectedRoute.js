@@ -3,12 +3,12 @@ import Router from "next/router";
 import { GetToken, GetUser, HasToken } from "../utility";
 
 export const ProtectedRoute = () => {
-  const token = GetToken();
+  // const token = GetToken();
   const user = GetUser();
   const hasToken = HasToken();
-  if (!token && !user && !hasToken) {
+  if (!user && !hasToken) {
     return Router.replace("/login");
-  } else if (token && user && hasToken) {
+  } else if (user && hasToken) {
     return Router.push("#");
   }
 };
