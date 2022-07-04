@@ -29,7 +29,7 @@ function AboutCreateForm(props) {
           <label htmlFor="name" className="text-indigo-700">
             Name
           </label>
-          <input id="name" className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Input Carousel Name" onChange={(event) => setName(event.target.value)} />
+          <input id="name" className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Input Carousel Name" onChange={(event) => setName(event.target.value)} />
         </div>
 
         <div className="mt-4 flex flex-col">
@@ -38,7 +38,7 @@ function AboutCreateForm(props) {
           </label>
           <textarea
             id="description"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500 pt-8"
+            className="px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500 pt-8"
             placeholder="Type About Description"
             onChange={(event) => setDescription(event.target.value)}
           />
@@ -51,7 +51,7 @@ function AboutCreateForm(props) {
           <input
             id="videoUrl"
             type="text"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500"
+            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500"
             placeholder="Type About Description"
             onChange={(event) => setVideoUrl(event.target.value)}
           />

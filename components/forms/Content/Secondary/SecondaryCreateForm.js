@@ -109,13 +109,13 @@ function SecondaryCreateForm(props) {
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="name">Name:</label>
-          <input id="name" className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Input Secondary Name" onChange={(e) => setName(e.target.value)} />
+          <input id="name" className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Input Secondary Name" onChange={(e) => setName(e.target.value)} />
         </div>
         <div className="mt-6 flex flex-col">
           <label htmlFor="description">Description :</label>
           <textarea
             id="description"
-            className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-[50px] mt-2  text-gray-700 focus:outline-blue-500 pt-8"
+            className="text-indigo-700 px-3 border border-gray-300 rounded w-[320px] h-[50px] mt-2 focus:outline-blue-500 pt-8"
             placeholder="Type Secondary Description"
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -131,8 +131,8 @@ function SecondaryCreateForm(props) {
           </div>
         </div>
       </div>
-      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Create Carousel" />}
-      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Create Carousel" />}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Create Secondary" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Create Secondary" />}
     </>
   );
 }
