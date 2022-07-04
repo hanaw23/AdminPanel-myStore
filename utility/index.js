@@ -1,16 +1,20 @@
 import axios from "axios";
 
 export const GetUser = () => {
-  const user = localStorage.getItem("USER_DATA");
-  if (user) {
-    return JSON.parse(user);
-  } else {
-    return null;
+  if (typeof window !== "undefined") {
+    const user = localStorage.getItem("USER_DATA");
+    if (user) {
+      return JSON.parse(user);
+    } else {
+      return null;
+    }
   }
 };
 
 export const GetToken = () => {
-  return localStorage.getItem("USER_TOKEN") || null;
+  if (typeof window !== "undefined") {
+    return localStorage.getItem("USER_TOKEN") || null;
+  }
 };
 
 export const SetUserLocal = (user, token) => {
