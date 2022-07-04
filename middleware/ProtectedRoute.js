@@ -4,12 +4,10 @@ import { GetToken, GetUser, HasToken } from "../utility";
 
 export const ProtectedRoute = () => {
   useEffect(() => {
-    return () => {
-      if (!GetToken() && !GetUser() && !HasToken()) {
-        return Router.push("/login");
-      } else if (GetToken() && GetUser() && HasToken()) {
-        return HasToken();
-      }
-    };
+    if (!GetToken() && !GetUser() && !HasToken()) {
+      return Router.push("/login");
+    } else if (GetToken() && GetUser() && HasToken()) {
+      return HasToken();
+    }
   }, []);
 };
