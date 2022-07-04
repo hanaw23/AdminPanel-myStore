@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 const Home = () => {
   const router = useRouter();
   useEffect(() => {
-    router.push("/contentManagement");
+    router.push("/login");
   }, []);
 };
 
