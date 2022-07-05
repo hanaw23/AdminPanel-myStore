@@ -4,12 +4,11 @@ import { GetToken, GetUser, HasToken } from "../utility";
 
 export const ProtectedRoute = () => {
   useEffect(() => {
-    const user = GetUser();
-    if (GetToken() && GetUser() && HasToken() && user.role === "admin") {
+    if (!GetToken() && !GetUser() && !HasToken()) {
+      Router.push("/login");
+    } else {
       HasToken();
       Router.push("#");
-    } else {
-      Router.push("/login");
     }
   }, []);
 };
