@@ -1,12 +1,12 @@
 import { login } from "../../Reducers/Login";
 import { SetUserLocal } from "../../../utility";
-import { UrlWebAdmin } from "../../../static";
+import { WebUrl } from "../../../static";
 import axios from "axios";
 
 export const axiosLogin = (email, password, router, setError) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}login`, {
+      const response = await axios.post(`${WebUrl}login`, {
         email: email,
         password: password,
       });
@@ -14,10 +14,14 @@ export const axiosLogin = (email, password, router, setError) => {
       dispatch(login(response.data.user));
       router.push("/productManagement");
     } catch (error) {
-      if (error.response.status === 400 || error.response.status === 401 || error.response.status === 404) {
+      if (
+        error.response.status === 400 ||
+        error.response.status === 401 ||
+        error.response.status === 404
+      ) {
         setError(error.response.data.message);
       } else {
-        setError("Error ! Please check email or password . . .");
+        setError("Internal server error !");
       }
     }
   };

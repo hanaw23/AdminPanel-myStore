@@ -1,13 +1,18 @@
 import axios from "axios";
 
-import { aboutEdit, aboutDelete, aboutCreate, aboutGet } from "../../../Reducers/Content/About";
-import { UrlWebAdmin } from "../../../../static";
+import {
+  aboutEdit,
+  aboutDelete,
+  aboutCreate,
+  aboutGet,
+} from "../../../Reducers/Content/About";
+import { WebUrl } from "../../../../static";
 import { HasToken } from "../../../../utility";
 
 export const axiosGetAbout = (setAbout) => {
   return (dispatch) => {
     axios
-      .get(`${UrlWebAdmin()}aboutContent`)
+      .get(`${WebUrl}aboutContent`)
       .then((response) => {
         setAbout(response.data);
         dispatch(aboutGet(response.data.result));
@@ -18,11 +23,18 @@ export const axiosGetAbout = (setAbout) => {
   };
 };
 
-export const axiosCreateAbout = (name, videoUrl, description, router, setSuccess, setFailed) => {
+export const axiosCreateAbout = (
+  name,
+  videoUrl,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
       HasToken();
-      const response = await axios.post(`${UrlWebAdmin()}aboutContent/create`, {
+      const response = await axios.post(`${WebUrl}aboutContent/create`, {
         name: name,
         description: description,
         videoUrl: videoUrl,
@@ -40,14 +52,25 @@ export const axiosCreateAbout = (name, videoUrl, description, router, setSuccess
   };
 };
 
-export const axiosEditAbout = (idContent, name, description, videoUrl, router, setSuccess, setFailed) => {
+export const axiosEditAbout = (
+  idContent,
+  name,
+  description,
+  videoUrl,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}aboutContent/update/${idContent}`, {
-        name: name,
-        description: description,
-        videoUrl: videoUrl,
-      });
+      const response = await axios.post(
+        `${WebUrl}aboutContent/update/${idContent}`,
+        {
+          name: name,
+          description: description,
+          videoUrl: videoUrl,
+        }
+      );
 
       if (response) {
         router.push("/contentManagement");
@@ -61,10 +84,18 @@ export const axiosEditAbout = (idContent, name, description, videoUrl, router, s
   };
 };
 
-export const axiosDeleteAbout = (idContent, name, router, setSuccess, setFailed) => {
+export const axiosDeleteAbout = (
+  idContent,
+  name,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}aboutContent/delete/${idContent}`);
+      const response = await axios.post(
+        `${WebUrl}aboutContent/delete/${idContent}`
+      );
 
       if (response) {
         router.push("/contentManagement");

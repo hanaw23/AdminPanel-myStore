@@ -1,13 +1,18 @@
 import axios from "axios";
 
-import { getProduct, deleteProduct, addProduct, editProduct } from "../../Reducers/ProductManagement";
-import { UrlWebAdmin } from "../../../static";
+import {
+  getProduct,
+  deleteProduct,
+  addProduct,
+  editProduct,
+} from "../../Reducers/ProductManagement";
+import { WebUrl } from "../../../static";
 import { HasToken } from "../../../utility";
 
 export const getProductAxios = (setproducts) => {
   return (dispatch) => {
     axios
-      .get(`${UrlWebAdmin()}store`)
+      .get(`${WebUrl}store`)
       .then((response) => {
         setproducts(response.data);
         dispatch(getProduct(response.data.result));
@@ -18,7 +23,16 @@ export const getProductAxios = (setproducts) => {
   };
 };
 
-export const addProductAxios = (imageUrl, name, category, description, price, router, setFailed, setSuccess) => {
+export const addProductAxios = (
+  imageUrl,
+  name,
+  category,
+  description,
+  price,
+  router,
+  setFailed,
+  setSuccess
+) => {
   return async (dispatch) => {
     try {
       HasToken();
@@ -29,11 +43,13 @@ export const addProductAxios = (imageUrl, name, category, description, price, ro
       formData.append("description", description);
       formData.append("price", price);
 
-      const response = await axios.post(`${UrlWebAdmin()}createProduct`, formData);
+      const response = await axios.post(`${WebUrl}createProduct`, formData);
 
       window.location.reload(true);
       dispatch(addProduct(response.data.result));
-      setSuccess(`Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`);
+      setSuccess(
+        `Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`
+      );
       router.push("/productManagement");
     } catch (error) {
       setFailed(error);
@@ -41,11 +57,20 @@ export const addProductAxios = (imageUrl, name, category, description, price, ro
   };
 };
 
-export const editProductAxios = (productId, name, category, description, price, router, setFailed, setSuccess) => {
+export const editProductAxios = (
+  productId,
+  name,
+  category,
+  description,
+  price,
+  router,
+  setFailed,
+  setSuccess
+) => {
   return async (dispatch) => {
     try {
       HasToken();
-      const response = await axios.post(`${UrlWebAdmin()}editProduct`, {
+      const response = await axios.post(`${WebUrl}editProduct`, {
         product_id: productId,
         name: name,
         category: category,
@@ -64,11 +89,17 @@ export const editProductAxios = (productId, name, category, description, price, 
   };
 };
 
-export const deleteProductAxios = (productId, productName, router, setFailed, setSuccess) => {
+export const deleteProductAxios = (
+  productId,
+  productName,
+  router,
+  setFailed,
+  setSuccess
+) => {
   return async (dispatch) => {
     try {
       HasToken();
-      const response = await axios.post(`${UrlWebAdmin()}deleteProduct`, {
+      const response = await axios.post(`${WebUrl}deleteProduct`, {
         product_id: productId,
       });
       if (response) {
