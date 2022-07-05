@@ -30,7 +30,7 @@ function AboutEditForm(props) {
           <label htmlFor="name" className="text-indigo-700">
             Name
           </label>
-          <input id="name" className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Input Carousel Name" onChange={(event) => setName(event.target.value)} value={name} />
+          <input id="name" className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Input About Name" onChange={(event) => setName(event.target.value)} value={name} />
         </div>
 
         <div className="mt-4 flex flex-col">
