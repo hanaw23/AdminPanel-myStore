@@ -13,7 +13,6 @@ const EditButton = (props) => {
 
   const handleCloseEditModal = () => {
     setOpenEditModal(!openEditModal);
-    window.location.reload(true);
   };
 
   const switchModalCase = () => {

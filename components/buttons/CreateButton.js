@@ -12,7 +12,6 @@ const CreateButton = (props) => {
 
   const handleCloseCreateModal = () => {
     setOpenCreateModal(!openCreateModal);
-    window.location.reload(true);
   };
 
   return (
