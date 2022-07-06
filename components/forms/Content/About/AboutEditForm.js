@@ -54,7 +54,7 @@ function AboutEditForm(props) {
             id="videoUrl"
             type="text"
             className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500"
-            placeholder="Type About Description"
+            placeholder="Type About Video URL"
             onChange={(event) => setVideoUrl(event.target.value)}
             value={videoUrl}
           />
