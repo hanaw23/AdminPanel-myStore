@@ -10,7 +10,7 @@ import { axiosGetCarousel } from "../../store/Action/Content/Carousel";
 import { axiosGetSecondary } from "../../store/Action/Content/Secondary";
 import { axiosGetAbout } from "../../store/Action/Content/About";
 
-const ContentGrid = () => {
+function ContentGrid() {
   const [carousel, setCarousel] = useState([]);
   const [secondary, setSecondary] = useState([]);
   const [about, setAbout] = useState([]);
@@ -159,6 +159,6 @@ const ContentGrid = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ContentGrid;

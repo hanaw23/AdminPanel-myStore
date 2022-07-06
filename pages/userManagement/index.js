@@ -6,7 +6,7 @@ import UserTable from "../../components/tables/UserTable";
 import { ProtectedRoute } from "../../middleware/ProtectedRoute";
 import { HasToken } from "../../utility";
 
-export default function userManagement() {
+function userManagement() {
   HasToken();
 
   useEffect(() => {
@@ -27,3 +27,5 @@ export default function userManagement() {
     </Layout>
   );
 }
+
+export default userManagement;

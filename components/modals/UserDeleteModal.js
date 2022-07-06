@@ -10,7 +10,7 @@ import ErrorMessage from "./ErrorMessage";
 
 import { deleteUserAxios } from "../../store/Action/UserManagement";
 
-const UserDeleteModal = (props) => {
+function UserDeleteModal(props) {
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
 
@@ -52,6 +52,6 @@ const UserDeleteModal = (props) => {
     </>,
     document.body
   );
-};
+}
 
 export default UserDeleteModal;

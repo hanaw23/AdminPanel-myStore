@@ -10,7 +10,7 @@ import ProductDrawer from "../../components/drawers/ProductDrawer";
 import { ProtectedRoute } from "../../middleware/ProtectedRoute";
 import { HasToken } from "../../utility";
 
-export default function productManagement() {
+function productManagement() {
   const [openAdd, setOpenAdd] = useState(false);
 
   const handleOpenAdd = () => {
@@ -45,3 +45,5 @@ export default function productManagement() {
     </Layout>
   );
 }
+
+export default productManagement;

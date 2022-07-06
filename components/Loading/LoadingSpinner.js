@@ -1,6 +1,6 @@
 import LoadingIcon from "../svg/LoadingIcon";
 
-export default function LoadingSpinner() {
+function LoadingSpinner() {
   return (
     <div className="text-center py-32">
       <LoadingIcon />
@@ -8,3 +8,5 @@ export default function LoadingSpinner() {
     </div>
   );
 }
+
+export default LoadingSpinner;

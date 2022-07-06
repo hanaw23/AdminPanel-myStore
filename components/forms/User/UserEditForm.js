@@ -96,8 +96,8 @@ function UserEditForm(props) {
           </div>
         </div>
       </div>
-      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Edit Product" />}
-      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Edit Product" />}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle="Edit User Role" />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle="Edit User Role" />}
     </>
   );
 }

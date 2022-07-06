@@ -9,7 +9,7 @@ import SearchFilter from "../filters/SearchFilter";
 
 import { getUserAxios } from "../../store/Action/UserManagement";
 
-export default function UserTable() {
+function UserTable() {
   const [pending, setPending] = useState(true);
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
@@ -47,3 +47,5 @@ export default function UserTable() {
     </>
   );
 }
+
+export default UserTable;

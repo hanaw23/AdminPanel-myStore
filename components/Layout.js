@@ -1,6 +1,6 @@
 import Sidebar from "./Sidebar";
 
-export default function Layout({ children }) {
+function Layout({ children }) {
   return (
     <div className="h-screen flex flex-row justify-start">
       <Sidebar />
@@ -8,3 +8,5 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+export default Layout;

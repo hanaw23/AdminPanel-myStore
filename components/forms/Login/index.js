@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { axiosLogin } from "../../../store/Action/Login";
 
-export const FormComponent = () => {
+function FormComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -91,4 +91,6 @@ export const FormComponent = () => {
       </div>
     </>
   );
-};
+}
+
+export default FormComponent;

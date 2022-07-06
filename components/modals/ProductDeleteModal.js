@@ -10,7 +10,7 @@ import ErrorMessage from "./ErrorMessage";
 
 import { deleteProductAxios } from "../../store/Action/ProductManagement";
 
-const ProductDeleteModal = (props) => {
+function ProductDeleteModal(props) {
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
 
@@ -52,6 +52,6 @@ const ProductDeleteModal = (props) => {
     </>,
     document.body
   );
-};
+}
 
 export default ProductDeleteModal;
