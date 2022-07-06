@@ -62,12 +62,12 @@ function UserEditForm(props) {
             <div className="flex justify-between mr-[105px]">
               <div className="flex">
                 {gender === "male" ? (
-                  <div className="border border-[#008DEB] bg-[#008DEB] rounded-[10px] w-[60px] h-[24px]">
-                    <h3 className="text-white text-sm px-2 text-center ">M</h3>
+                  <div className="border border-[#008DEB] bg-[#008DEB] rounded-[10px] w-[80px] h-[24px]">
+                    <h3 className="text-white text-sm px-2 text-center ">Male</h3>
                   </div>
                 ) : (
-                  <div className="border border-rose-500 bg-rose-500  rounded-[10px] w-[60px] h-[24px]">
-                    <h3 className="text-white text-sm px-2 text-center ">F</h3>
+                  <div className="border border-rose-600 bg-rose-600  rounded-[10px] w-[80px] h-[24px]">
+                    <h3 className="text-white text-sm px-2 text-center ">Female</h3>
                   </div>
                 )}
               </div>
