@@ -5,6 +5,7 @@ import { carouselReducer } from "./Reducers/Content/Carousel";
 import { secondaryReducer } from "./Reducers/Content/Secondary";
 import { aboutReducer } from "./Reducers/Content/About";
 import { productReducer } from "./Reducers/ProductManagement";
+import { userReducer } from "./Reducers/UserManagement";
 
 const reducer = combineReducers({
   login: loginReducer,
@@ -12,6 +13,7 @@ const reducer = combineReducers({
   secondary: secondaryReducer,
   about: aboutReducer,
   product: productReducer,
+  user: userReducer,
 });
 
 const makeStore = () =>
