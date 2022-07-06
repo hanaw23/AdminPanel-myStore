@@ -7,7 +7,7 @@ import Select from "react-select";
 
 import SuccessMessage from "../../modals/SuccessMessage";
 import ErrorMessage from "../../modals/ErrorMessage";
-import { Categories } from "../../../common/Categories";
+import { Categories } from "../../../common/Options";
 
 import { editProductAxios } from "../../../store/Action/ProductManagement";
 

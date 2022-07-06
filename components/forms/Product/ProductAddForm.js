@@ -8,7 +8,7 @@ import Select from "react-select";
 import ImageIcon from "../../svg/ImageIcon";
 import SuccessMessage from "../../modals/SuccessMessage";
 import ErrorMessage from "../../modals/ErrorMessage";
-import { Categories } from "../../../common/Categories";
+import { Categories } from "../../../common/Options";
 
 import { addProductAxios } from "../../../store/Action/ProductManagement";
 

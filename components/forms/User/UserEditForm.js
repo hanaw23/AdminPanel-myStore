@@ -6,7 +6,7 @@ import Select from "react-select";
 
 import SuccessMessage from "../../modals/SuccessMessage";
 import ErrorMessage from "../../modals/ErrorMessage";
-import { Roles } from "../../../common/Categories";
+import { Roles } from "../../../common/Options";
 
 import { editUserAxios } from "../../../store/Action/UserManagement/index";
 
