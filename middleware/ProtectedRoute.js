@@ -1,14 +1,20 @@
 import Router from "next/router";
-import { useEffect } from "react";
-import { GetToken, GetUser, HasToken } from "../utility";
+import { GetToken, GetUser } from "../utility";
 
 export const ProtectedRoute = () => {
-  useEffect(() => {
-    if (!GetToken() && !GetUser() && !HasToken()) {
+  const user = GetUser();
+  const token = GetToken();
+  if (token && user) {
+    if (user.role === "user") {
       Router.push("/login");
     } else {
-      HasToken();
-      Router.push("#");
+      if (user.role === "admin") {
+        Router.push("#");
+      } else {
+        Router.push("/login");
+      }
     }
-  }, []);
+  } else {
+    Router.push("/login");
+  }
 };

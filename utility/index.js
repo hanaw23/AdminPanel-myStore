@@ -1,24 +1,29 @@
 import axios from "axios";
 
 export const GetUser = () => {
-  const user = localStorage.getItem("USER_DATA");
-  if (user) {
-    return JSON.parse(user);
-  } else {
-    return null;
-  }
+    const user = localStorage.getItem("USER_DATA");
+    if (user) {
+      return JSON.parse(user);
+    } else {
+      return null;
+    }
 };
 
 export const GetToken = () => {
-  return localStorage.getItem("USER_TOKEN") || null;
+    return localStorage.getItem("USER_TOKEN") || null;
 };
 
 export const SetUserLocal = (user, token) => {
-  return localStorage.setItem("USER_DATA", JSON.stringify(user)), localStorage.setItem("USER_TOKEN", token);
+  return (
+    localStorage.setItem("USER_DATA", JSON.stringify(user)),
+    localStorage.setItem("USER_TOKEN", token)
+  );
 };
 
 export const RemoveUserLocal = () => {
-  return localStorage.removeItem("USER_DATA"), localStorage.removeItem("USER_TOKEN");
+  return (
+    localStorage.removeItem("USER_DATA"), localStorage.removeItem("USER_TOKEN")
+  );
 };
 
 export const HasToken = () => {
