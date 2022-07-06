@@ -23,7 +23,7 @@ function UserDrawer(props) {
               </div>
             ) : null}
           </div>
-          <UserEditForm onClose={props.onClose} userId={props.userId} username={props.username} role={props.role} email={props.email} />
+          <UserEditForm onClose={props.onClose} userId={props.userId} username={props.username} role={props.role} email={props.email} gender={props.gender} address={props.address} />
         </article>
       </section>
       <section aria-hidden="true" className=" w-screen h-full" />

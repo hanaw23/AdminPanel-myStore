@@ -9,11 +9,7 @@ export const ProtectedRoute = () => {
     if (user.role === "user") {
       Router.push("/login");
     } else {
-      if (user.role === "admin") {
-        Router.push("#");
-      } else {
-        Router.push("/login");
-      }
+      Router.push("#");
     }
   } else {
     Router.push("/login");

@@ -14,7 +14,7 @@ export default function UserTable() {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
 
-  //   console.log(users);
+  console.log(users);
 
   const dispatch = useDispatch();
 

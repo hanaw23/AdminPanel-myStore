@@ -22,7 +22,9 @@ const DetailButton = (props) => {
         </button>
       </div>
 
-      {openDetail && <UserDrawer isOpen={openDetail} title="Detail User Information" onClose={handleCloseDetail} userId={props.userId} username={props.username} role={props.role} email={props.email} />}
+      {openDetail && (
+        <UserDrawer isOpen={openDetail} title="Detail User Information" onClose={handleCloseDetail} userId={props.userId} username={props.username} role={props.role} email={props.email} gender={props.gender} address={props.address} />
+      )}
     </>
   );
 };

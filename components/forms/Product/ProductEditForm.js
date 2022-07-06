@@ -55,7 +55,16 @@ function ProductEditForm(props) {
         </div>
         <div className="mt-8 flex flex-col">
           <label htmlFor="category">Category :</label>
-          <Select id="selectbox" instanceId="selectbox" options={Categories} onChange={handleChangeCategory} defaultInputValue={category} className="w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Select Category" isClearable />
+          <Select
+            id="selectbox"
+            instanceId="selectbox"
+            options={Categories}
+            onChange={handleChangeCategory}
+            defaultInputValue={category}
+            className="w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
+            placeholder="Select Category"
+            isClearable
+          />
         </div>
         <div className="mt-8 flex flex-col">
           <label htmlFor="description">Description :</label>
