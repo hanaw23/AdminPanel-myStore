@@ -14,7 +14,11 @@ export const axiosLogin = (email, password, router, setError) => {
       dispatch(login(response.data.user));
       router.push("/productManagement");
     } catch (error) {
-      if (error.response.status === 400 || error.response.status === 401 || error.response.status === 404) {
+      if (
+        error.response.status === 400 ||
+        error.response.status === 401 ||
+        error.response.status === 404
+      ) {
         setError(error.response.data.message);
       } else {
         setError("Internal server error !");

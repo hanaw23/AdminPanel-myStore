@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Router from "next/router";
 import { GetToken, GetUser } from "../utility";
 
