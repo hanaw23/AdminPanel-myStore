@@ -61,7 +61,6 @@ function ContentGrid() {
             about.content?.map((item) => (
               <div
                 key={item.abc_id}
-                // className={`border ${`bg-${item.imageUrl}`}
                 className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer "
                 onMouseEnter={() => setHoverAction(true)}
                 onMouseLeave={() => setHoverAction(!hoverAction)}
@@ -74,7 +73,7 @@ function ContentGrid() {
                     </div>
                   </div>
                 ) : (
-                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
+                  <h1 className="mr-3 mt-20 text-white text-lg font-bold tracking-wider">{item.name}</h1>
                 )}
               </div>
             ))
@@ -95,8 +94,7 @@ function ContentGrid() {
           {carousel.content?.map((item, i) => (
             <div
               key={item.pc_id}
-              // className={`border ${`bg-${item.imageUrl}`}
-              className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer mb-6"
+              className="border bg-[url('/assets/images/carousel.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer mb-6"
               onMouseEnter={() => handleHoverCarousel(i)}
               onMouseLeave={() => handleOutHoverCarousel()}
             >
@@ -108,7 +106,7 @@ function ContentGrid() {
                   </div>
                 </div>
               ) : (
-                <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
+                <h1 className="mr-3 mt-20 text-white text-lg font-bold tracking-wider">{item.name}</h1>
               )}
             </div>
           ))}
@@ -127,8 +125,7 @@ function ContentGrid() {
             secondary.content?.map((item) => (
               <div
                 key={item.sc_id}
-                // className={`border ${`bg-${item.imageUrl}`}
-                className="border bg-[url('/assets/images/AboutImage.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer"
+                className="border bg-[url('/assets/images/secondary.jpg')] bg-cover bg-no-repeat h-40 w-80 rounded-[10px] flex justify-end hover:h-60 hover:bg-[length:322px_180px] hover:border-gray-300 shadow-lg shadow-gray-400 border-transparent cursor-pointer"
                 onMouseEnter={() => setHoverAction3(true)}
                 onMouseLeave={() => setHoverAction3(!hoverAction3)}
               >
@@ -150,7 +147,7 @@ function ContentGrid() {
                     </div>
                   </div>
                 ) : (
-                  <h1 className="mr-3 mt-2 text-gray-300 text-sm font-bold">{item.name}</h1>
+                  <h1 className="mr-3 mt-20 text-white text-lg font-bold tracking-wider">{item.name}</h1>
                 )}
               </div>
             ))
