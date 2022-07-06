@@ -40,16 +40,16 @@ function UserEditForm(props) {
             <h2 className="font-bold text-m mb-3">Account User</h2>
             <div className="flex justify-between mr-16">
               <div>
-                <h2 className="text-m mb-1">User Id:</h2>
+                <h2 className="text-m mb-1">User Id :</h2>
                 <h3>{props.userId}</h3>
               </div>
               <div>
-                <h2 className="text-m mb-1">Username User:</h2>
+                <h2 className="text-m mb-1">Username User :</h2>
                 <h3>{props.username}</h3>
               </div>
             </div>
             <div>
-              <h2 className="text-m mb-1 mt-4">Email User:</h2>
+              <h2 className="text-m mb-1 mt-4">Email User :</h2>
               <h3>{props.email}</h3>
             </div>
           </div>
@@ -58,7 +58,7 @@ function UserEditForm(props) {
         <div className="mt-12">
           <h2 className="font-bold text-m mb-2">Profile User</h2>
           <div>
-            <h2 className="text-m mb-3">Gender:</h2>
+            <h2 className="text-m mb-3">Gender :</h2>
             <div className="flex justify-between mr-[105px]">
               <div className="flex">
                 {gender === "male" ? (
@@ -72,7 +72,7 @@ function UserEditForm(props) {
                 )}
               </div>
               <div className="-mt-[30px]">
-                <h2 className="text-m mb-1">Address:</h2>
+                <h2 className="text-m mb-1">Address :</h2>
                 <h3>{props.address}</h3>
               </div>
             </div>
