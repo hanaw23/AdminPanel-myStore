@@ -1,14 +1,19 @@
 import axios from "axios";
 
-import { carouselEdit, carouselDelete, carouselCreate, carouselGet } from "../../../Reducers/Content/Carousel";
-import { UrlWebAdmin } from "../../../../static";
+import {
+  carouselEdit,
+  carouselDelete,
+  carouselCreate,
+  carouselGet,
+} from "../../../Reducers/Content/Carousel";
+import { WebUrl } from "../../../../static";
 
 import { HasToken } from "../../../../utility";
 
 export const axiosGetCarousel = (setCarousel) => {
   return (dispatch) => {
     axios
-      .get(`${UrlWebAdmin()}primaryContent`)
+      .get(`${WebUrl}primaryContent`)
       .then((response) => {
         setCarousel(response.data);
         dispatch(carouselGet(response.data.result));
@@ -19,7 +24,14 @@ export const axiosGetCarousel = (setCarousel) => {
   };
 };
 
-export const axiosCreateCarousel = (name, imageUrl, description, router, setSuccess, setFailed) => {
+export const axiosCreateCarousel = (
+  name,
+  imageUrl,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
       HasToken();
@@ -27,7 +39,10 @@ export const axiosCreateCarousel = (name, imageUrl, description, router, setSucc
       formData.append("imageUrl", imageUrl);
       formData.append("name", name);
       formData.append("description", description);
-      const response = await axios.post(`${UrlWebAdmin()}primaryContent/create`, formData);
+      const response = await axios.post(
+        `${WebUrl}primaryContent/create`,
+        formData
+      );
       router.push("/contentManagement");
       window.location.reload(true);
       setSuccess(`Content Name : ${name}`);
@@ -38,13 +53,23 @@ export const axiosCreateCarousel = (name, imageUrl, description, router, setSucc
   };
 };
 
-export const axiosEditCarousel = (idContent, name, description, router, setSuccess, setFailed) => {
+export const axiosEditCarousel = (
+  idContent,
+  name,
+  description,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}primaryContent/update/${idContent}`, {
-        name: name,
-        description: description,
-      });
+      const response = await axios.post(
+        `${WebUrl}primaryContent/update/${idContent}`,
+        {
+          name: name,
+          description: description,
+        }
+      );
 
       if (response) {
         router.push("/contentManagement");
@@ -58,10 +83,18 @@ export const axiosEditCarousel = (idContent, name, description, router, setSucce
   };
 };
 
-export const axiosDeleteCarousel = (idContent, name, router, setSuccess, setFailed) => {
+export const axiosDeleteCarousel = (
+  idContent,
+  name,
+  router,
+  setSuccess,
+  setFailed
+) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`${UrlWebAdmin()}primaryContent/delete/${idContent}`);
+      const response = await axios.post(
+        `${WebUrl}primaryContent/delete/${idContent}`
+      );
 
       if (response) {
         router.push("/contentManagement");

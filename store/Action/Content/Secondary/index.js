@@ -6,12 +6,12 @@ import {
   secondaryCreate,
   secondaryGet,
 } from "../../../Reducers/Content/Secondary";
-import { UrlWebAdmin } from "../../../../static";
+import { WebUrl } from "../../../../static";
 
 export const axiosGetSecondary = (setSecondary) => {
   return (dispatch) => {
     axios
-      .get(`${UrlWebAdmin()}secondaryContent`)
+      .get(`${WebUrl}secondaryContent`)
       .then((response) => {
         setSecondary(response.data);
         dispatch(secondaryGet(response.data.result));
@@ -44,7 +44,7 @@ export const axiosCreateSecondary = (
       formData.append("description", description);
 
       const response = await axios.post(
-        `${UrlWebAdmin()}secondaryContent/create`,
+        `${WebUrl}secondaryContent/create`,
         formData
       );
 
@@ -69,7 +69,7 @@ export const axiosEditSecondary = (
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        `${UrlWebAdmin()}secondaryContent/update/${idContent}`,
+        `${WebUrl}secondaryContent/update/${idContent}`,
         {
           name: name,
           description: description,
@@ -98,9 +98,8 @@ export const axiosDeleteSecondary = (
   return async (dispatch) => {
     try {
       const response = await axios.post(
-        `${UrlWebAdmin()}secondaryContent/delete/${idContent}`
+        `${WebUrl}secondaryContent/delete/${idContent}`
       );
-      console.log(response);
 
       if (response) {
         router.push("/contentManagement");

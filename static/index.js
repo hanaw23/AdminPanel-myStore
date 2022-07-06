@@ -1,5 +1,5 @@
-export const UrlWebAdmin = () => {
-  // const url = "http://localhost:4000/";
-  const url = "https://mystore-1010.herokuapp.com/";
-  return url;
-};
+//Local
+// export const WebUrl = "http://localhost:4000/";
+
+//Production
+export const WebUrl = "https://mystore-1010.herokuapp.com/";
