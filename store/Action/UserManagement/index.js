@@ -1,13 +1,13 @@
 import axios from "axios";
 
 import { deleteUser, getUser, editUser } from "../../Reducers/UserManagement";
-import { UrlWebAdmin } from "../../../static";
+import { WebUrl } from "../../../static";
 import { HasToken } from "../../../utility";
 
 export const getUserAxios = (setUsers) => {
   return (dispatch) => {
     axios
-      .get(`${UrlWebAdmin()}userManagement`)
+      .get(`${WebUrl}userManagement`)
       .then((response) => {
         setUsers(response.data);
         dispatch(getUser(response.data.result));
@@ -22,7 +22,7 @@ export const editUserAxios = (userId, username, userRole, router, setFailed, set
   return async (dispatch) => {
     try {
       HasToken();
-      const response = await axios.post(`${UrlWebAdmin()}userManagement/update/${userId}`, {
+      const response = await axios.post(`${WebUrl}userManagement/update/${userId}`, {
         role: userRole,
       });
       if (response) {
@@ -41,7 +41,7 @@ export const deleteUserAxios = (userId, username, router, setFailed, setSuccess)
   return async (dispatch) => {
     try {
       HasToken();
-      const response = await axios.post(`${UrlWebAdmin()}userManagement/delete/${userId}`);
+      const response = await axios.post(`${WebUrl}userManagement/delete/${userId}`);
       if (response) {
         window.location.reload(true);
         setSuccess(`Username : ${username}`);
