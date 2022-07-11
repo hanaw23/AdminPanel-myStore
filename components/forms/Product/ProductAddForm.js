@@ -56,7 +56,8 @@ function ProductAddForm(props) {
           <div className="flex justify-center align-center ml-[150px] h-[160px] w-[175px] mt-2">
             {imageUrlPreview !== null ? <img src={imageUrlPreview} alt="preview product" id="frame" height={130} width={165} /> : <ImageIcon height={100} width={130} />}
           </div>
-          <input type="file" accept="image/*" className="text-gray-700 mt-2" onChange={imageHandlerPreview} id="photo" />
+          <input type="file" accept=".jpeg, .jpg" className="text-gray-700 mt-2" onChange={imageHandlerPreview} id="photo" />
+          <p className="text-rose-500 text-xs mt-1">Upload .jpeg or .jpg format only</p>
         </div>
 
         <div className="mt-4 flex flex-col">
