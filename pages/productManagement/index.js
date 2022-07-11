@@ -10,7 +10,7 @@ import ProductDrawer from "../../components/drawers/ProductDrawer";
 import { ProtectedRoute } from "../../middleware/ProtectedRoute";
 import { HasToken } from "../../utility";
 
-export default function productManagement() {
+function productManagement() {
   const [openAdd, setOpenAdd] = useState(false);
 
   const handleOpenAdd = () => {
@@ -19,11 +19,10 @@ export default function productManagement() {
 
   const handleCloseAdd = () => {
     setOpenAdd(!openAdd);
-    window.location.reload(true);
   };
 
   HasToken();
-  
+
   useEffect(() => {
     ProtectedRoute();
   }, []);
@@ -33,9 +32,7 @@ export default function productManagement() {
       <div className="z-0">
         <div className="flex justify-between h-14"></div>
         <div>
-          <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">
-            Product Management
-          </h1>
+          <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">Product Management</h1>
         </div>
         <div className=" ml-[80px] mt-10 mx-center">
           <div className="flex justify-end mr-16">
@@ -48,3 +45,5 @@ export default function productManagement() {
     </Layout>
   );
 }
+
+export default productManagement;

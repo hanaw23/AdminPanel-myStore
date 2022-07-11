@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import style from "./Modal.module.css";
 
-const ErrorMessage = (props) => {
+function ErrorMessage(props) {
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
@@ -32,6 +32,6 @@ const ErrorMessage = (props) => {
     </>,
     document.body
   );
-};
+}
 
 export default ErrorMessage;

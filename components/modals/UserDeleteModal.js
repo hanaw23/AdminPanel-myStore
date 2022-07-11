@@ -8,20 +8,20 @@ import style from "./Modal.module.css";
 import SuccessMessage from "./SuccessMessage";
 import ErrorMessage from "./ErrorMessage";
 
-import { deleteProductAxios } from "../../store/Action/ProductManagement";
+import { deleteUserAxios } from "../../store/Action/UserManagement";
 
-function ProductDeleteModal(props) {
+function UserDeleteModal(props) {
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
 
-  const productId = props.productId;
-  const productName = props.productName;
+  const userId = props.userId;
+  const username = props.username;
 
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const DeleteProductSubmit = () => {
-    dispatch(deleteProductAxios(productId, productName, router, setFailed, setSuccess));
+  const DeleteUserSubmit = () => {
+    dispatch(deleteUserAxios(userId, username, router, setFailed, setSuccess));
   };
 
   return ReactDOM.createPortal(
@@ -32,10 +32,10 @@ function ProductDeleteModal(props) {
             <div>
               <div className="w-50 h-50 bg-white rounded-[8px] px-6 py-6">
                 <div>
-                  <div>Are you sure want to delete {props.productName} ?</div>
+                  <div>Are you sure want to delete {props.username} ?</div>
                 </div>
                 <div className="flex gap-10 mt-8 justify-center">
-                  <button className="border border-transparent bg-indigo-700 text-sm w-20 h-8 rounded text-white text-semibold" type="submit" onClick={DeleteProductSubmit}>
+                  <button className="border border-transparent bg-indigo-700 text-sm w-20 h-8 rounded text-white text-semibold" type="submit" onClick={DeleteUserSubmit}>
                     Delete
                   </button>
                   <button className="border border-indigo-700 bg-white-700 text-sm w-20 h-8 rounded text-indigo-400 text-semibold" onClick={props.onClose}>
@@ -47,11 +47,11 @@ function ProductDeleteModal(props) {
           </div>
         </OutsideClickHandler>
       </div>
-      {success.length !== 0 && <SuccessMessage message={success} actionTitle={`Delete ${props.productName}`} />}
-      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle={`Delete ${props.productName}`} />}
+      {success.length !== 0 && <SuccessMessage message={success} actionTitle={`Delete ${props.username}`} />}
+      {failed.length !== 0 && <ErrorMessage message={failed} actionTitle={`Delete ${props.username}`} />}
     </>,
     document.body
   );
 }
 
-export default ProductDeleteModal;
+export default UserDeleteModal;

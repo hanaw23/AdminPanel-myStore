@@ -9,7 +9,7 @@ import { menuItems } from "../static/menuItems";
 
 import { RemoveUserLocal, GetUser } from "../utility";
 
-export default function Sidebar() {
+function Sidebar() {
   const [toggleCollapse, setToggleCollapse] = useState(false);
   const [isCollapsible, setIsCollapsible] = useState(false);
   const [user, setUser] = useState([]);
@@ -79,3 +79,5 @@ export default function Sidebar() {
     </>
   );
 }
+
+export default Sidebar;

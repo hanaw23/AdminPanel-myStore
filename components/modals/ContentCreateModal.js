@@ -5,7 +5,7 @@ import ContentCreateForm from "../forms/Content/Carousel/ContentCreateForm";
 import SecondaryCreateForm from "../forms/Content/Secondary/SecondaryCreateForm";
 import AboutCreateForm from "../forms/Content/About/AboutCreateForm";
 
-const ContentCreateModal = (props) => {
+function ContentCreateModal(props) {
   const switchModalCase = () => {
     switch (props.content) {
       case "Carousel":
@@ -34,6 +34,6 @@ const ContentCreateModal = (props) => {
     </>,
     document.body
   );
-};
+}
 
 export default ContentCreateModal;

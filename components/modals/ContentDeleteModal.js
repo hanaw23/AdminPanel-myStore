@@ -12,7 +12,7 @@ import { axiosDeleteCarousel } from "../../store/Action/Content/Carousel";
 import { axiosDeleteSecondary } from "../../store/Action/Content/Secondary";
 import { axiosDeleteAbout } from "../../store/Action/Content/About";
 
-const ContentDeleteModal = (props) => {
+function ContentDeleteModal(props) {
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
 
@@ -85,6 +85,6 @@ const ContentDeleteModal = (props) => {
     </>,
     document.body
   );
-};
+}
 
 export default ContentDeleteModal;

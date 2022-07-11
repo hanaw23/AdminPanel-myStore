@@ -5,7 +5,7 @@ import SecondaryEditForm from "../forms/Content/Secondary/SecondaryEditForm";
 import AboutEditForm from "../forms/Content/About/AboutEditForm";
 import style from "./Modal.module.css";
 
-const ContentEditModal = (props) => {
+function ContentEditModal(props) {
   const switchModalCase = () => {
     switch (props.content) {
       case "Carousel":
@@ -47,6 +47,6 @@ const ContentEditModal = (props) => {
     </>,
     document.body
   );
-};
+}
 
 export default ContentEditModal;
