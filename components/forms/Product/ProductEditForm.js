@@ -45,13 +45,7 @@ function ProductEditForm(props) {
         </div>
         <div className="mt-8 flex flex-col">
           <label htmlFor="name">Product Name :</label>
-          <input
-            id="name"
-            className="ext-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
-            placeholder="Input Product Name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
+          <input id="name" className="px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500" placeholder="Input Product Name" value={name} onChange={(event) => setName(event.target.value)} />
         </div>
         <div className="mt-8 flex flex-col">
           <label htmlFor="category">Category :</label>

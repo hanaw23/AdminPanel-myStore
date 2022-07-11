@@ -32,6 +32,19 @@ function ContentCreateForm(props) {
         setimageUrlPreview(reader.result);
         setImageUrl(event.target.files[0]);
       }
+
+      // const image = new Image();
+      // image.src = event.target.result;
+      // image.onload = () => {
+      //   const height = event.target.height;
+      //   console.log(height);
+      //   const width = event.target.width;
+      //   if (height > 400 && width > 600) {
+      //     alert("Max Photo size must height 400px and width 600px");
+      //   } else {
+      //     alert("Success upload photo");
+      //   }
+      // };
     };
     reader.readAsDataURL(event.target.files[0]);
   };
@@ -46,7 +59,8 @@ function ContentCreateForm(props) {
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
             {imageUrlPreview !== null ? <img src={imageUrlPreview} alt="preview product" id="frame" height={100} width={100} /> : <ImageIcon height={100} width={100} className="ml-[100px] mb-4" />}
           </div>
-          <input type="file" accept="image/*" className="text-gray-700 mt-2" id="photo" onChange={imageHandlerPreview} />
+          <input type="file" accept=".jpeg, .jpg" className="text-gray-700 mt-2" id="photo" onChange={imageHandlerPreview} />
+          <p className="text-rose-500 text-xs mt-1">Upload .jpeg or .jpg format only</p>
         </div>
 
         <div className="mt-6 flex flex-col">
@@ -65,7 +79,7 @@ function ContentCreateForm(props) {
         </div>
 
         <div>
-          <div className="flex gap-8 mt-20 justify-center">
+          <div className="flex gap-8 mt-12 justify-center">
             <button className="border border-transparent bg-indigo-700 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" type="submit" onClick={createContentCarouselSubmit}>
               Submit
             </button>
