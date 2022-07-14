@@ -65,7 +65,11 @@ function ContentCreateForm(props) {
             Upload Carousel Photo
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
-            {imageUrlPreview !== null && alertImageSize.length === 0 ? <img src={imageUrlPreview} alt="preview product" id="frame" height={100} width={100} /> : <ImageIcon height={100} width={100} className="mb-4 fill-indigo-500" />}
+            {imageUrlPreview !== null && alertImageSize.length === 0 ? (
+              <img src={imageUrlPreview} alt="preview product" id="frame" height={100} width={100} />
+            ) : (
+              <ImageIcon height={100} width={100} className={`mb-4 ${alertImageSize ? "fill-red-500" : "fill-indigo-500"} `} />
+            )}
           </div>
           <input type="file" accept=".jpeg, .jpg, .png" className="text-gray-700 mt-2" id="photo" onChange={imageHandlerPreview} />
           {alertImageSize ? <p className="text-rose-500 text-xs mt-1">{alertImageSize}</p> : <p className="text-rose-500 text-xs mt-1">Upload .jpeg, .jpg, or .png format only</p>}
