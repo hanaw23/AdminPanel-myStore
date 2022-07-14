@@ -11,10 +11,10 @@ import { Roles } from "../../../common/Options";
 import { editUserAxios } from "../../../store/Action/UserManagement/index";
 
 function UserEditForm(props) {
-  const [userRole, setUserRole] = useState(props.role);
-
+  const [userRole, setUserRole] = useState("");
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
+  const [empty, setEmpty] = useState("");
 
   const userId = props.userId;
   const username = props.username;
@@ -24,12 +24,19 @@ function UserEditForm(props) {
   const dispatch = useDispatch();
 
   const editUserSubmit = () => {
-    dispatch(editUserAxios(userId, username, userRole, router, setFailed, setSuccess));
+    dispatch(editUserAxios(userId, username, userRole, router, setFailed, setSuccess, setEmpty));
   };
 
   const handleChangeRole = (event) => {
     setUserRole(event.value);
-    return userRole;
+    setEmpty("");
+  };
+
+  const colourStyles = {
+    control: (base) => ({
+      ...base,
+      border: empty ? "1px solid red" : null,
+    }),
   };
 
   return (
@@ -80,8 +87,19 @@ function UserEditForm(props) {
         </div>
         <div className="mt-12">
           <h2 className="font-bold text-m">Role</h2>
-          <div className="flex mt-2">
-            <Select className="text-gray-700 w-[320px] h-10 mt-2 focus:outline-blue-500" placeholder="Change Role" isClearable options={Roles} id="selectbox" instanceId="selectbox" onChange={handleChangeRole} defaultInputValue={userRole} />
+          <div className="mt-2">
+            <Select
+              className="text-gray-700 w-[320px] h-10 mt-2 focus:outline-blue-500"
+              placeholder="Change Role"
+              isClearable
+              options={Roles}
+              id="selectbox"
+              instanceId="selectbox"
+              onChange={handleChangeRole}
+              defaultInputValue={props.role}
+              styles={colourStyles}
+            />
+            {empty && <p className="text-xs text-red-500 mt-1">{empty}</p>}
           </div>
         </div>
 

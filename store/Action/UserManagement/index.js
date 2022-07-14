@@ -18,7 +18,7 @@ export const getUserAxios = (setUsers) => {
   };
 };
 
-export const editUserAxios = (userId, username, userRole, router, setFailed, setSuccess) => {
+export const editUserAxios = (userId, username, userRole, router, setFailed, setSuccess, setEmpty) => {
   return async (dispatch) => {
     try {
       HasToken();
@@ -32,7 +32,11 @@ export const editUserAxios = (userId, username, userRole, router, setFailed, set
         router.push("/userManagement");
       }
     } catch (error) {
-      setFailed(error);
+      if (error.response.status === 400) {
+        setEmpty(error.response.data.message);
+      } else {
+        setFailed(error);
+      }
     }
   };
 };

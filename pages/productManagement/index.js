@@ -19,6 +19,7 @@ function productManagement() {
 
   const handleCloseAdd = () => {
     setOpenAdd(!openAdd);
+    window.location.reload(true);
   };
 
   HasToken();

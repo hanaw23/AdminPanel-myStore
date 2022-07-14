@@ -1,11 +1,6 @@
 import axios from "axios";
 
-import {
-  carouselEdit,
-  carouselDelete,
-  carouselCreate,
-  carouselGet,
-} from "../../../Reducers/Content/Carousel";
+import { carouselEdit, carouselDelete, carouselCreate, carouselGet } from "../../../Reducers/Content/Carousel";
 import { WebUrl } from "../../../../static";
 
 import { HasToken } from "../../../../utility";
@@ -24,14 +19,7 @@ export const axiosGetCarousel = (setCarousel) => {
   };
 };
 
-export const axiosCreateCarousel = (
-  name,
-  imageUrl,
-  description,
-  router,
-  setSuccess,
-  setFailed
-) => {
+export const axiosCreateCarousel = (name, imageUrl, description, router, setSuccess, setFailed, setEmpty) => {
   return async (dispatch) => {
     try {
       HasToken();
@@ -39,37 +27,30 @@ export const axiosCreateCarousel = (
       formData.append("imageUrl", imageUrl);
       formData.append("name", name);
       formData.append("description", description);
-      const response = await axios.post(
-        `${WebUrl}primaryContent/create`,
-        formData
-      );
+
+      const response = await axios.post(`${WebUrl}primaryContent/create`, formData);
+
       router.push("/contentManagement");
       window.location.reload(true);
       setSuccess(`Content Name : ${name}`);
       dispatch(carouselCreate(response.data.content));
     } catch (error) {
-      setFailed(error);
+      if (error.response.status === 400) {
+        setEmpty(error.response.data.message);
+      } else {
+        setFailed(error);
+      }
     }
   };
 };
 
-export const axiosEditCarousel = (
-  idContent,
-  name,
-  description,
-  router,
-  setSuccess,
-  setFailed
-) => {
+export const axiosEditCarousel = (idContent, name, description, router, setSuccess, setFailed, setEmpty) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(
-        `${WebUrl}primaryContent/update/${idContent}`,
-        {
-          name: name,
-          description: description,
-        }
-      );
+      const response = await axios.post(`${WebUrl}primaryContent/update/${idContent}`, {
+        name: name,
+        description: description,
+      });
 
       if (response) {
         router.push("/contentManagement");
@@ -78,23 +59,19 @@ export const axiosEditCarousel = (
         dispatch(carouselEdit(response.data.result));
       }
     } catch (error) {
-      setFailed(error);
+      if (error.response.status === 400) {
+        setEmpty(error.response.data.message);
+      } else {
+        setFailed(error);
+      }
     }
   };
 };
 
-export const axiosDeleteCarousel = (
-  idContent,
-  name,
-  router,
-  setSuccess,
-  setFailed
-) => {
+export const axiosDeleteCarousel = (idContent, name, router, setSuccess, setFailed) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(
-        `${WebUrl}primaryContent/delete/${idContent}`
-      );
+      const response = await axios.post(`${WebUrl}primaryContent/delete/${idContent}`);
 
       if (response) {
         router.push("/contentManagement");

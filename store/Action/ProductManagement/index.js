@@ -1,11 +1,6 @@
 import axios from "axios";
 
-import {
-  getProduct,
-  deleteProduct,
-  addProduct,
-  editProduct,
-} from "../../Reducers/ProductManagement";
+import { getProduct, deleteProduct, addProduct, editProduct } from "../../Reducers/ProductManagement";
 import { WebUrl } from "../../../static";
 import { HasToken } from "../../../utility";
 
@@ -23,16 +18,7 @@ export const getProductAxios = (setproducts) => {
   };
 };
 
-export const addProductAxios = (
-  imageUrl,
-  name,
-  category,
-  description,
-  price,
-  router,
-  setFailed,
-  setSuccess
-) => {
+export const addProductAxios = (imageUrl, name, category, description, price, router, setFailed, setSuccess, setEmpty) => {
   return async (dispatch) => {
     try {
       HasToken();
@@ -45,28 +31,21 @@ export const addProductAxios = (
 
       const response = await axios.post(`${WebUrl}createProduct`, formData);
 
-      window.location.reload(true);
-      dispatch(addProduct(response.data.result));
-      setSuccess(
-        `Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`
-      );
       router.push("/productManagement");
+      window.location.reload(true);
+      setSuccess(`Product ID : ${response.data.result.product_id} and Product Name : ${response.data.result.name}`);
+      dispatch(addProduct(response.data.result));
     } catch (error) {
-      setFailed(error);
+      if (error.response.status === 400) {
+        setEmpty(error.response.data.message);
+      } else {
+        setFailed(error);
+      }
     }
   };
 };
 
-export const editProductAxios = (
-  productId,
-  name,
-  category,
-  description,
-  price,
-  router,
-  setFailed,
-  setSuccess
-) => {
+export const editProductAxios = (productId, name, category, description, price, router, setFailed, setSuccess, setEmpty) => {
   return async (dispatch) => {
     try {
       HasToken();
@@ -84,18 +63,16 @@ export const editProductAxios = (
         router.push("/productManagement");
       }
     } catch (error) {
-      setFailed(error);
+      if (error.response.status === 400) {
+        setEmpty(error.response.data.message);
+      } else {
+        setFailed(error);
+      }
     }
   };
 };
 
-export const deleteProductAxios = (
-  productId,
-  productName,
-  router,
-  setFailed,
-  setSuccess
-) => {
+export const deleteProductAxios = (productId, productName, router, setFailed, setSuccess) => {
   return async (dispatch) => {
     try {
       HasToken();
