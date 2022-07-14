@@ -7,7 +7,7 @@ import { HasToken } from "../../../utility";
 export const getProductAxios = (setproducts) => {
   return (dispatch) => {
     axios
-      .get(`${WebUrl}store`)
+      .get(`${WebUrl}getProducts`)
       .then((response) => {
         setproducts(response.data);
         dispatch(getProduct(response.data.result));
