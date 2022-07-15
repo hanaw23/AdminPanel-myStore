@@ -37,6 +37,7 @@ function ProductAddForm(props) {
       if (reader.readyState === 2) {
         setimageUrlPreview(reader.result);
         setImageUrl(event.target.files[0]);
+        setEmpty("");
       }
     };
     reader.readAsDataURL(event.target.files[0]);
@@ -73,14 +74,14 @@ function ProductAddForm(props) {
     <>
       <div className="text-sm bg-gray-100 text-gray-700">
         <div className="mt-4">
-          <label htmlFor="photo" className="mb-2 text-indigo-700">
+          <label htmlFor="photo" className={` ${empty ? "text-red-500" : "text-indigo-700"} mb-2`}>
             Upload Product Photo
           </label>
           <div className="flex justify-center align-center ml-[150px] h-[160px] w-[175px] mt-2">
-            {imageUrlPreview !== null ? <img src={imageUrlPreview} alt="preview product" id="frame" height={130} width={165} /> : <ImageIcon height={100} width={130} className="fill-indigo-500" />}
+            {imageUrlPreview !== null ? <img src={imageUrlPreview} alt="preview product" id="frame" height={130} width={165} /> : <ImageIcon height={100} width={130} className={`${empty ? "fill-red-500" : "fill-indigo-500"} `} />}
           </div>
-          <input type="file" accept=".jpeg, .jpg" className="text-gray-700" onChange={imageHandlerPreview} id="photo" />
-          <p className="text-rose-500 text-xs mt-1">Upload .jpeg or .jpg format only</p>
+          <input type="file" accept=".jpeg, .jpg, .png" className="text-gray-700" onChange={imageHandlerPreview} id="photo" />
+          {empty ? <p className="text-rose-500 text-xs mt-1">{empty}</p> : <p className="text-rose-500 text-xs mt-1">Upload .jpeg, .jpg, or .png format only</p>}
         </div>
 
         <div className="mt-4 flex flex-col">

@@ -34,12 +34,13 @@ function ContentCreateForm(props) {
     const fileSizeRound = Math.round(fileSize / 1024);
 
     reader.onload = () => {
-      if (fileSizeRound > 2000) {
-        setAlertImageSize("File too Big, please select a file less than 2 MB");
+      if (fileSizeRound > 3000) {
+        setAlertImageSize("File too Big, please select a file less than 3 MB");
       } else {
         if (reader.readyState === 2) {
           setimageUrlPreview(reader.result);
           setImageUrl(event.target.files[0]);
+          setEmpty("");
           setAlertImageSize("");
         }
       }
@@ -61,18 +62,25 @@ function ContentCreateForm(props) {
     <>
       <div className="text-sm bg-white ">
         <div className="mt-4">
-          <label htmlFor="photo" className={` ${alertImageSize ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="photo" className={` ${alertImageSize || empty ? "text-red-500" : "text-indigo-700"}`}>
             Upload Carousel Photo
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
             {imageUrlPreview !== null && alertImageSize.length === 0 ? (
               <img src={imageUrlPreview} alt="preview product" id="frame" height={100} width={100} />
             ) : (
-              <ImageIcon height={100} width={100} className={`mb-4 ${alertImageSize ? "fill-red-500" : "fill-indigo-500"} `} />
+              <ImageIcon height={100} width={100} className={`mb-4 ${alertImageSize || empty ? "fill-red-500" : "fill-indigo-500"} `} />
             )}
           </div>
           <input type="file" accept=".jpeg, .jpg, .png" className="text-gray-700 mt-2" id="photo" onChange={imageHandlerPreview} />
-          {alertImageSize ? <p className="text-rose-500 text-xs mt-1">{alertImageSize}</p> : <p className="text-rose-500 text-xs mt-1">Upload .jpeg, .jpg, or .png format only</p>}
+
+          {alertImageSize ? (
+            <p className="text-rose-500 text-xs mt-1">{alertImageSize}</p>
+          ) : empty ? (
+            <p className="text-rose-500 text-xs mt-1">{empty}</p>
+          ) : (
+            <p className="text-rose-500 text-xs mt-1">Upload .jpeg, .jpg, or .png format only</p>
+          )}
         </div>
 
         <div className="mt-6 flex flex-col">
