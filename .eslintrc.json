@@ -1,18 +1,23 @@
 // {
-//   "extends": "next/core-web-vitals"
+//   "extends": "next/core-web-vitals",
+// "extends": ["plugin:react/recommended", "airbnb"],
 // }
 {
   "env": {
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["next/core-web-vitals", "next"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": false
     },
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "requireConfigFile": false
   },
   "plugins": ["react"],
   "parser": "@babel/eslint-parser",
