@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const userManagementSlice = createSlice({
-  name: "product",
+  name: 'product',
   initialState: {
     getUser: null,
     editUser: null,

@@ -1,10 +1,8 @@
-import FormComponent from "../../components/forms/Login";
+import FormComponent from '../../components/forms/Login';
 
 function Login() {
   return (
-    <>
-      <FormComponent />
-    </>
+    <FormComponent />
   );
 }
 

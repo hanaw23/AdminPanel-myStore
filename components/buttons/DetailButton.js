@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import DetailIcon from "../svg/DetailIcon";
-import UserDrawer from "../drawers/UserDrawer";
+import DetailIcon from '../svg/DetailIcon';
+import UserDrawer from '../drawers/UserDrawer';
 
-const DetailButton = (props) => {
+function DetailButton(props) {
   const [openDetail, setOpenDetail] = useState(false);
 
   const handleOpenDetail = () => {
@@ -27,6 +27,6 @@ const DetailButton = (props) => {
       )}
     </>
   );
-};
+}
 
 export default DetailButton;

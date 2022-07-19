@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import CreateButton from "../buttons/CreateButton";
-import DeleteButton from "../buttons/DeleteButton";
-import EditButton from "../buttons/EditButton";
+import CreateButton from '../buttons/CreateButton';
+import DeleteButton from '../buttons/DeleteButton';
+import EditButton from '../buttons/EditButton';
 
-import { axiosGetCarousel } from "../../store/Action/Content/Carousel";
-import { axiosGetSecondary } from "../../store/Action/Content/Secondary";
-import { axiosGetAbout } from "../../store/Action/Content/About";
+import { axiosGetCarousel } from '../../store/Action/Content/Carousel';
+import { axiosGetSecondary } from '../../store/Action/Content/Secondary';
+import { axiosGetAbout } from '../../store/Action/Content/About';
 
 function ContentGrid() {
   const [carousel, setCarousel] = useState([]);
@@ -17,7 +17,7 @@ function ContentGrid() {
 
   const [hoverAction, setHoverAction] = useState(false);
   const [hoverAction2, setHoverAction2] = useState(false);
-  const [hoverCarousel, setHoverCarousel] = useState("");
+  const [hoverCarousel, setHoverCarousel] = useState('');
   const [hoverAction3, setHoverAction3] = useState(false);
 
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ function ContentGrid() {
 
   const handleOutHoverCarousel = () => {
     setHoverAction2(!hoverAction2);
-    setHoverCarousel("");
+    setHoverCarousel('');
   };
 
   return (

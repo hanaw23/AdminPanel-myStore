@@ -1,11 +1,9 @@
-import "../styles/globals.css";
-import { wrapper } from "../store";
+import '../styles/globals.css';
+import { wrapper } from '../store';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <Component {...pageProps} />
   );
 }
 

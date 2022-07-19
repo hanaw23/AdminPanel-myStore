@@ -1,24 +1,23 @@
-/* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import Select from "react-select";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import Select from 'react-select';
 
-import SuccessMessage from "../../modals/SuccessMessage";
-import ErrorMessage from "../../modals/ErrorMessage";
-import { Roles } from "../../../common/Options";
+import SuccessMessage from '../../modals/SuccessMessage';
+import ErrorMessage from '../../modals/ErrorMessage';
+import { Roles } from '../../../common/Options';
 
-import { editUserAxios } from "../../../store/Action/UserManagement/index";
+import { editUserAxios } from '../../../store/Action/UserManagement/index';
 
 function UserEditForm(props) {
-  const [userRole, setUserRole] = useState("");
-  const [success, setSuccess] = useState("");
-  const [failed, setFailed] = useState("");
-  const [empty, setEmpty] = useState("");
+  const [userRole, setUserRole] = useState('');
+  const [success, setSuccess] = useState('');
+  const [failed, setFailed] = useState('');
+  const [empty, setEmpty] = useState('');
 
-  const userId = props.userId;
-  const username = props.username;
-  const gender = props.gender;
+  const { userId } = props;
+  const { username } = props;
+  const { gender } = props;
 
   const router = useRouter();
   const dispatch = useDispatch();
@@ -29,13 +28,13 @@ function UserEditForm(props) {
 
   const handleChangeRole = (event) => {
     setUserRole(event.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   const colourStyles = {
     control: (base) => ({
       ...base,
-      border: empty ? "1px solid red" : null,
+      border: empty ? '1px solid red' : null,
     }),
   };
 
@@ -68,7 +67,7 @@ function UserEditForm(props) {
             <h2 className="text-m mb-3">Gender :</h2>
             <div className="flex justify-between mr-[105px]">
               <div className="flex">
-                {gender === "male" ? (
+                {gender === 'male' ? (
                   <div className="border border-[#008DEB] bg-[#008DEB] rounded-[10px] w-[80px] h-[24px]">
                     <h3 className="text-white text-sm px-2 text-center ">Male</h3>
                   </div>

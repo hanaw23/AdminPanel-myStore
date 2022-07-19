@@ -4,7 +4,7 @@ const nextConfig = {
 };
 
 const redirectConfig = {
-  basePath: "/login",
+  basePath: '/login',
 };
 
 module.exports = { nextConfig, redirectConfig };

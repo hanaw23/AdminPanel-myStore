@@ -1,20 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import DataTable from "react-data-table-component";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from 'react';
+import DataTable from 'react-data-table-component';
+import { useDispatch } from 'react-redux';
 
-import UserTableHeader from "../../common/TableHeader/UserTableHeader";
-import LoadingSpinner from "../Loading/LoadingSpinner";
-import SearchFilter from "../filters/SearchFilter";
+import UserTableHeader from '../../common/TableHeader/UserTableHeader';
+import LoadingSpinner from '../Loading/LoadingSpinner';
+import SearchFilter from '../filters/SearchFilter';
 
-import { getUserAxios } from "../../store/Action/UserManagement";
+import { getUserAxios } from '../../store/Action/UserManagement';
 
 function UserTable() {
   const [pending, setPending] = useState(true);
   const [users, setUsers] = useState([]);
-  const [query, setQuery] = useState("");
-
-  console.log(users);
+  const [query, setQuery] = useState('');
 
   const dispatch = useDispatch();
 
@@ -30,12 +28,11 @@ function UserTable() {
   }, []);
 
   const handleData = (rowData) => {
-    if (query === "") {
+    if (query === '') {
       return rowData;
-    } else {
-      const filteredItems = rowData.filter((item) => JSON.stringify(item).toLowerCase().indexOf(query.toLowerCase()) !== -1);
-      return filteredItems;
     }
+    const filteredItems = rowData.filter((item) => JSON.stringify(item).toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filteredItems;
   };
 
   return (

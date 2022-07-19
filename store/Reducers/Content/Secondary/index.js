@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const secondarySlice = createSlice({
-  name: "secondary",
+  name: 'secondary',
   initialState: {
     secondaryEdit: null,
     secondaryDelete: null,
@@ -27,5 +27,7 @@ const secondarySlice = createSlice({
   },
 });
 
-export const { secondaryEdit, secondaryDelete, secondaryGet, secondaryCreate } = secondarySlice.actions;
+export const {
+  secondaryEdit, secondaryDelete, secondaryGet, secondaryCreate,
+} = secondarySlice.actions;
 export const secondaryReducer = secondarySlice.reducer;

@@ -1,20 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 
-import { axiosEditCarousel } from "../../../../store/Action/Content/Carousel";
-import SuccessMessage from "../../../modals/SuccessMessage";
-import ErrorMessage from "../../../modals/ErrorMessage";
+import { axiosEditCarousel } from '../../../../store/Action/Content/Carousel';
+import SuccessMessage from '../../../modals/SuccessMessage';
+import ErrorMessage from '../../../modals/ErrorMessage';
 
 function ContentEditForm(props) {
   const [name, setName] = useState(props.nameContent);
   const [description, setDescription] = useState(props.descriptionContent);
-  const [success, setSuccess] = useState("");
-  const [failed, setFailed] = useState("");
-  const [empty, setEmpty] = useState("");
+  const [success, setSuccess] = useState('');
+  const [failed, setFailed] = useState('');
+  const [empty, setEmpty] = useState('');
 
-  const idContent = props.idContent;
+  const { idContent } = props;
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -24,12 +24,12 @@ function ContentEditForm(props) {
 
   const handleChangeName = (event) => {
     setName(event.target.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   const handleChangeDescription = (event) => {
     setDescription(event.target.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   return (
@@ -45,12 +45,12 @@ function ContentEditForm(props) {
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="name" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="name" className={` ${empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Name
           </label>
           <input
             id="name"
-            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? "border-red-500" : "border-gray-300"}`}
+            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? 'border-red-500' : 'border-gray-300'}`}
             placeholder="Input Carousel Name"
             onChange={handleChangeName}
             value={name}
@@ -59,12 +59,12 @@ function ContentEditForm(props) {
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="description" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="description" className={` ${empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Description
           </label>
           <textarea
             id="description"
-            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? "border-red-500" : "border-gray-300"}`}
+            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? 'border-red-500' : 'border-gray-300'}`}
             placeholder="Type Carousel Description"
             onChange={handleChangeDescription}
             value={description}

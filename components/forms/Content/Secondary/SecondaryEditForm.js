@@ -1,21 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
 
-import SuccessMessage from "../../../modals/SuccessMessage";
-import ErrorMessage from "../../../modals/ErrorMessage";
+import SuccessMessage from '../../../modals/SuccessMessage';
+import ErrorMessage from '../../../modals/ErrorMessage';
 
-import { axiosEditSecondary } from "../../../../store/Action/Content/Secondary";
+import { axiosEditSecondary } from '../../../../store/Action/Content/Secondary';
 
 function SecondaryEditForm(props) {
   const [name, setName] = useState(props.nameContent);
   const [description, setDescription] = useState(props.descriptionContent);
-  const [success, setSuccess] = useState("");
-  const [failed, setFailed] = useState("");
-  const [empty, setEmpty] = useState("");
+  const [success, setSuccess] = useState('');
+  const [failed, setFailed] = useState('');
+  const [empty, setEmpty] = useState('');
 
-  const idContent = props.idContent;
+  const { idContent } = props;
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -25,12 +25,12 @@ function SecondaryEditForm(props) {
 
   const handleChangeName = (event) => {
     setName(event.target.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   const handleChangeDescription = (event) => {
     setDescription(event.target.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   return (
@@ -51,12 +51,12 @@ function SecondaryEditForm(props) {
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="name" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="name" className={` ${empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Name
           </label>
           <input
             id="name"
-            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? "border-red-500" : "border-gray-300"}`}
+            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? 'border-red-500' : 'border-gray-300'}`}
             placeholder="Input Secondary Name"
             onChange={handleChangeName}
             value={name}
@@ -65,12 +65,12 @@ function SecondaryEditForm(props) {
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="description" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="description" className={` ${empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Description
           </label>
           <textarea
             id="description"
-            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? "border-red-500" : "border-gray-300"}`}
+            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? 'border-red-500' : 'border-gray-300'}`}
             placeholder="Type Secondary Description"
             onChange={handleChangeDescription}
             value={description}

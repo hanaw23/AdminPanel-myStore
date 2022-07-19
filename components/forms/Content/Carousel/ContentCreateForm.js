@@ -1,23 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/router";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 
-import ImageIcon from "../../../svg/ImageIcon";
-import SuccessMessage from "../../../modals/SuccessMessage";
-import ErrorMessage from "../../../modals/ErrorMessage";
+import ImageIcon from '../../../svg/ImageIcon';
+import SuccessMessage from '../../../modals/SuccessMessage';
+import ErrorMessage from '../../../modals/ErrorMessage';
 
-import { axiosCreateCarousel } from "../../../../store/Action/Content/Carousel";
+import { axiosCreateCarousel } from '../../../../store/Action/Content/Carousel';
 
 function ContentCreateForm(props) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [imageUrl, setImageUrl] = useState(null);
   const [imageUrlPreview, setimageUrlPreview] = useState(null);
-  const [description, setDescription] = useState("");
-  const [success, setSuccess] = useState("");
-  const [failed, setFailed] = useState("");
-  const [empty, setEmpty] = useState("");
-  const [alertImageSize, setAlertImageSize] = useState("");
+  const [description, setDescription] = useState('');
+  const [success, setSuccess] = useState('');
+  const [failed, setFailed] = useState('');
+  const [empty, setEmpty] = useState('');
+  const [alertImageSize, setAlertImageSize] = useState('');
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -35,14 +35,12 @@ function ContentCreateForm(props) {
 
     reader.onload = () => {
       if (fileSizeRound > 3000) {
-        setAlertImageSize("File too Big, please select a file less than 3 MB");
-      } else {
-        if (reader.readyState === 2) {
-          setimageUrlPreview(reader.result);
-          setImageUrl(event.target.files[0]);
-          setEmpty("");
-          setAlertImageSize("");
-        }
+        setAlertImageSize('File too Big, please select a file less than 3 MB');
+      } else if (reader.readyState === 2) {
+        setimageUrlPreview(reader.result);
+        setImageUrl(event.target.files[0]);
+        setEmpty('');
+        setAlertImageSize('');
       }
     };
     reader.readAsDataURL(event.target.files[0]);
@@ -50,26 +48,26 @@ function ContentCreateForm(props) {
 
   const handleChangeName = (event) => {
     setName(event.target.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   const handleChangeDescription = (event) => {
     setDescription(event.target.value);
-    setEmpty("");
+    setEmpty('');
   };
 
   return (
     <>
       <div className="text-sm bg-white ">
         <div className="mt-4">
-          <label htmlFor="photo" className={` ${alertImageSize || empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="photo" className={` ${alertImageSize || empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Upload Carousel Photo
           </label>
           <div className="ml-80 mb-2 h-[100px] w-[100px] mt-2">
             {imageUrlPreview !== null && alertImageSize.length === 0 ? (
               <img src={imageUrlPreview} alt="preview product" id="frame" height={100} width={100} />
             ) : (
-              <ImageIcon height={100} width={100} className={`mb-4 ${alertImageSize || empty ? "fill-red-500" : "fill-indigo-500"} `} />
+              <ImageIcon height={100} width={100} className={`mb-4 ${alertImageSize || empty ? 'fill-red-500' : 'fill-indigo-500'} `} />
             )}
           </div>
           <input type="file" accept=".jpeg, .jpg, .png" className="text-gray-700 mt-2" id="photo" onChange={imageHandlerPreview} />
@@ -84,12 +82,12 @@ function ContentCreateForm(props) {
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="name" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="name" className={` ${empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Name
           </label>
           <input
             id="name"
-            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? "border-red-500" : "border-gray-300"}`}
+            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? 'border-red-500' : 'border-gray-300'}`}
             placeholder="Input Carousel Name"
             value={name}
             onChange={handleChangeName}
@@ -98,12 +96,12 @@ function ContentCreateForm(props) {
         </div>
 
         <div className="mt-6 flex flex-col">
-          <label htmlFor="description" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
+          <label htmlFor="description" className={` ${empty ? 'text-red-500' : 'text-indigo-700'}`}>
             Description
           </label>
           <textarea
             id="description"
-            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? "border-red-500" : "border-gray-300"}`}
+            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? 'border-red-500' : 'border-gray-300'}`}
             placeholder="Type Carousel Description"
             value={description}
             onChange={handleChangeDescription}

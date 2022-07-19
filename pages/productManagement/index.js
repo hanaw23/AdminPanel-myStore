@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import Layout from "../../components/Layout";
-import ProductTable from "../../components/tables/ProductTable";
+import Layout from '../../components/Layout';
+import ProductTable from '../../components/tables/ProductTable';
 
-import AddButton from "../../components/buttons/AddButton";
-import ProductDrawer from "../../components/drawers/ProductDrawer";
+import AddButton from '../../components/buttons/AddButton';
+import ProductDrawer from '../../components/drawers/ProductDrawer';
 
-import { ProtectedRoute } from "../../middleware/ProtectedRoute";
-import { HasToken } from "../../utility";
+import { ProtectedRoute } from '../../middleware/ProtectedRoute';
+import { HasToken } from '../../utility';
 
 function productManagement() {
   const [openAdd, setOpenAdd] = useState(false);
@@ -31,7 +31,7 @@ function productManagement() {
   return (
     <Layout>
       <div className="z-0">
-        <div className="flex justify-between h-14"></div>
+        <div className="flex justify-between h-14" />
         <div>
           <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">Product Management</h1>
         </div>

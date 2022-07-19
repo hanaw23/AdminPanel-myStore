@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Router from "next/router";
-import { GetToken, GetUser } from "../utility";
+import Router from 'next/router';
+import { GetToken, GetUser } from '../utility';
 
 export const ProtectedRoute = () => {
   const user = GetUser();
   const token = GetToken();
   if (token && user) {
-    if (user.role === "user") {
-      Router.push("/login");
+    if (user.role === 'user') {
+      Router.push('/login');
     } else {
-      Router.push("#");
+      Router.push('#');
     }
   } else {
-    Router.push("/login");
+    Router.push('/login');
   }
 };
