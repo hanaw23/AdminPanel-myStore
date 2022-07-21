@@ -1,4 +1,4 @@
-import DeleteButton from "../../components/Buttons/DeleteButton";
+import DeleteButton from "../../components/buttons/DeleteButton";
 import DetailButton from "../../components/buttons/DetailButton";
 import style from "./User.module.css";
 
