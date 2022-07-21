@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const carouselSlice = createSlice({
-  name: "carousel",
+  name: 'carousel',
   initialState: {
     carouselEdit: null,
     carouselDelete: null,
@@ -27,5 +27,7 @@ const carouselSlice = createSlice({
   },
 });
 
-export const { carouselEdit, carouselDelete, carouselCreate, carouselGet } = carouselSlice.actions;
+export const {
+  carouselEdit, carouselDelete, carouselCreate, carouselGet,
+} = carouselSlice.actions;
 export const carouselReducer = carouselSlice.reducer;

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import ContentDeleteModal from "../modals/ContentDeleteModal";
-import ProductDeleteModal from "../modals/ProductDeleteModal";
-import DeleteIcon from "../svg/DeleteIcon";
+import ContentDeleteModal from '../modals/ContentDeleteModal';
+import ProductDeleteModal from '../modals/ProductDeleteModal';
+import UserDeleteModal from '../modals/UserDeleteModal';
+import DeleteIcon from '../svg/DeleteIcon';
 
-const DeleteButton = (props) => {
+function DeleteButton(props) {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   const handleOpenDeleteModal = () => {
@@ -13,15 +14,16 @@ const DeleteButton = (props) => {
 
   const handleCloseDeleteModal = () => {
     setOpenDeleteModal(!openDeleteModal);
-    window.location.reload(true);
   };
 
   const switchModalCase = () => {
     switch (props.title) {
-      case "Content":
+      case 'Content':
         return <ContentDeleteModal onClose={handleCloseDeleteModal} idContent={props.idContent} nameContent={props.nameContent} content={props.content} />;
-      case "Product":
+      case 'Product':
         return <ProductDeleteModal onClose={handleCloseDeleteModal} productId={props.productId} productName={props.productName} />;
+      case 'User':
+        return <UserDeleteModal onClose={handleCloseDeleteModal} userId={props.userId} username={props.username} />;
 
       default:
     }
@@ -37,6 +39,6 @@ const DeleteButton = (props) => {
       {openDeleteModal ? switchModalCase() : null}
     </>
   );
-};
+}
 
 export default DeleteButton;

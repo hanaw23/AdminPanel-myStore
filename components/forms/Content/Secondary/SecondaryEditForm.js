@@ -13,19 +13,30 @@ function SecondaryEditForm(props) {
   const [description, setDescription] = useState(props.descriptionContent);
   const [success, setSuccess] = useState("");
   const [failed, setFailed] = useState("");
+  const [empty, setEmpty] = useState("");
 
-  const idContent = props.idContent;
+  const { idContent } = props;
   const router = useRouter();
   const dispatch = useDispatch();
 
   const editContentSubmit = () => {
-    dispatch(axiosEditSecondary(idContent, name, description, router, setSuccess, setFailed));
+    dispatch(axiosEditSecondary(idContent, name, description, router, setSuccess, setFailed, setEmpty));
+  };
+
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+    setEmpty("");
+  };
+
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
+    setEmpty("");
   };
 
   return (
     <>
       <div className="text-sm bg-white overflow-auto">
-        <div className="mt-1 mb-4">
+        <div className="mb-4">
           <div className="ml-[235px]">
             <img src={props.imgContent} alt="Background Secondary" height={80} width={280} />
           </div>
@@ -39,33 +50,36 @@ function SecondaryEditForm(props) {
           </div>
         </div>
 
-        <div className="mt-4 flex flex-col">
-          <label htmlFor="name" className="text-indigo-700">
+        <div className="mt-6 flex flex-col">
+          <label htmlFor="name" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
             Name
           </label>
           <input
             id="name"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[320px] h-10 mt-2  text-gray-700 focus:outline-blue-500"
+            className={`text-gray-700 px-3 border rounded w-[320px] h-10 mt-2 focus:outline-blue-500 ${empty ? "border-red-500" : "border-gray-300"}`}
             placeholder="Input Secondary Name"
-            onChange={(event) => setName(event.target.value)}
+            onChange={handleChangeName}
             value={name}
           />
+          {empty && <p className="text-xs text-red-500 mt-1">{empty}</p>}
         </div>
-        <div className="mt-4 flex flex-col">
-          <label htmlFor="description" className="text-indigo-700">
+
+        <div className="mt-6 flex flex-col">
+          <label htmlFor="description" className={` ${empty ? "text-red-500" : "text-indigo-700"}`}>
             Description
           </label>
           <textarea
             id="description"
-            className="text-gray-700 px-3 border border-gray-300 rounded w-[500px] h-[100px] mt-2  text-gray-700 focus:outline-blue-500 pt-8"
+            className={`text-gray-700 px-3 border rounded w-[500px] h-[100px] mt-2 focus:outline-blue-500 pt-8 ${empty ? "border-red-500" : "border-gray-300"}`}
             placeholder="Type Secondary Description"
-            onChange={(event) => setDescription(event.target.value)}
+            onChange={handleChangeDescription}
             value={description}
           />
+          {empty && <p className="text-xs text-red-500 mt-1">{empty}</p>}
         </div>
 
         <div>
-          <div className="flex gap-8 mt-10 justify-center py-2">
+          <div className="flex gap-8 mt-14 justify-center py-2">
             <button className="border border-transparent bg-indigo-700 text-sm w-[255px] h-12 rounded-[10px] text-white font-bold" type="submit" onClick={editContentSubmit}>
               Submit
             </button>

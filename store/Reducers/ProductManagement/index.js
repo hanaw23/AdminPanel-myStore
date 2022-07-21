@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const productManagementSlice = createSlice({
-  name: "product",
+  name: 'product',
   initialState: {
     getProduct: null,
     addProduct: null,
@@ -27,5 +27,7 @@ const productManagementSlice = createSlice({
   },
 });
 
-export const { getProduct, addProduct, editProduct, deleteProduct } = productManagementSlice.actions;
+export const {
+  getProduct, addProduct, editProduct, deleteProduct,
+} = productManagementSlice.actions;
 export const productReducer = productManagementSlice.reducer;

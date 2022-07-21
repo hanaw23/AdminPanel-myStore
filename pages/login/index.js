@@ -1,11 +1,9 @@
-import { FormComponent } from "../../components/forms/Login";
+import FormComponent from '../../components/forms/Login';
 
-const Login = () => {
+function Login() {
   return (
-    <>
-      <FormComponent />
-    </>
+    <FormComponent />
   );
-};
+}
 
 export default Login;

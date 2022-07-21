@@ -1,14 +1,17 @@
-import Router from "next/router";
-import { useEffect } from "react";
-import { GetUser, HasToken } from "../utility";
+/* eslint-disable react-hooks/exhaustive-deps */
+import Router from 'next/router';
+import { GetToken, GetUser } from '../utility';
 
 export const ProtectedRoute = () => {
-  useEffect(() => {
-    if (GetUser().role === "user") {
-      Router.push("/login");
+  const user = GetUser();
+  const token = GetToken();
+  if (token && user) {
+    if (user.role === 'user') {
+      Router.push('/login');
     } else {
-      HasToken();
-      Router.push("#");
+      Router.push('#');
     }
-  }, []);
+  } else {
+    Router.push('/login');
+  }
 };

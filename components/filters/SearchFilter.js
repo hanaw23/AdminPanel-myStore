@@ -1,4 +1,4 @@
-import SearchIcon from "../../components/svg/SearchIcon";
+import SearchIcon from '../svg/SearchIcon';
 
 function SearchFilter({ filterValue, filterChange }) {
   return (

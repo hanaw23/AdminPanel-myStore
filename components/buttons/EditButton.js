@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import EditIcon from "../svg/EditIcon";
-import ContentEditModal from "../modals/ContentEditModal";
-import ProductDrawer from "../drawers/ProductDrawer";
+import EditIcon from '../svg/EditIcon';
+import ContentEditModal from '../modals/ContentEditModal';
+import ProductDrawer from '../drawers/ProductDrawer';
 
-const EditButton = (props) => {
+function EditButton(props) {
   const [openEditModal, setOpenEditModal] = useState(false);
 
   const handleOpenEditModal = () => {
@@ -13,12 +13,11 @@ const EditButton = (props) => {
 
   const handleCloseEditModal = () => {
     setOpenEditModal(!openEditModal);
-    window.location.reload(true);
   };
 
   const switchModalCase = () => {
     switch (props.title) {
-      case "Content":
+      case 'Content':
         return (
           <ContentEditModal
             onClose={handleCloseEditModal}
@@ -33,7 +32,7 @@ const EditButton = (props) => {
             logoC={props.logoC}
           />
         );
-      case "Product":
+      case 'Product':
         return (
           <ProductDrawer isOpen={openEditModal} title="Edit" onClose={handleCloseEditModal} productId={props.productId} name={props.name} category={props.category} description={props.description} price={props.price} image={props.image} />
         );
@@ -52,6 +51,6 @@ const EditButton = (props) => {
       {openEditModal ? switchModalCase() : null}
     </>
   );
-};
+}
 
 export default EditButton;
