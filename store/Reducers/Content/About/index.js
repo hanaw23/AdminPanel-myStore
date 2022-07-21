@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const aboutSlice = createSlice({
-  name: "about",
+  name: 'about',
   initialState: {
     aboutEdit: null,
     aboutDelete: null,
@@ -27,5 +27,7 @@ const aboutSlice = createSlice({
   },
 });
 
-export const { aboutEdit, aboutDelete, aboutCreate, aboutGet } = aboutSlice.actions;
+export const {
+  aboutEdit, aboutDelete, aboutCreate, aboutGet,
+} = aboutSlice.actions;
 export const aboutReducer = aboutSlice.reducer;

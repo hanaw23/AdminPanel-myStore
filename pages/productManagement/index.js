@@ -1,15 +1,16 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import Layout from "../../components/Layout";
-import ProductTable from "../../components/tables/ProductTable";
+import Layout from '../../components/Layout';
+import ProductTable from '../../components/tables/ProductTable';
 
-import AddButton from "../../components/buttons/AddButton";
-import ProductDrawer from "../../components/drawers/ProductDrawer";
+import AddButton from '../../components/buttons/AddButton';
+import ProductDrawer from '../../components/drawers/ProductDrawer';
 
-import { ProtectedRoute } from "../../middleware/ProtectedRoute";
+import { ProtectedRoute } from '../../middleware/ProtectedRoute';
+import { HasToken } from '../../utility';
 
-export default function productManagement() {
+function productManagement() {
   const [openAdd, setOpenAdd] = useState(false);
 
   const handleOpenAdd = () => {
@@ -21,12 +22,16 @@ export default function productManagement() {
     window.location.reload(true);
   };
 
-  ProtectedRoute();
-  
+  HasToken();
+
+  useEffect(() => {
+    ProtectedRoute();
+  }, []);
+
   return (
     <Layout>
       <div className="z-0">
-        <div className="flex justify-between h-14"></div>
+        <div className="flex justify-between h-14" />
         <div>
           <h1 className=" font-semibold text-[30px] text-gray-600 ml-20 -mt-[40px]">Product Management</h1>
         </div>
@@ -41,3 +46,5 @@ export default function productManagement() {
     </Layout>
   );
 }
+
+export default productManagement;

@@ -1,19 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import DataTable from "react-data-table-component";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import DataTable from 'react-data-table-component';
 
-import ProductTableHeader from "../../common/TableHeader/ProductTableHeader";
-import SearchFilter from "../filters/SearchFilter";
-import LoadingSpinner from "../Loading/LoadingSpinner";
+import ProductTableHeader from '../../common/TableHeader/ProductTableHeader';
+import SearchFilter from '../filters/SearchFilter';
+import LoadingSpinner from '../Loading/LoadingSpinner';
 
-import { getProductAxios } from "../../store/Action/ProductManagement";
+import { getProductAxios } from '../../store/Action/ProductManagement';
 
 function ProductTable() {
   const [pending, setPending] = useState(true);
   const [products, setproducts] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const dispatch = useDispatch();
 
@@ -29,12 +29,11 @@ function ProductTable() {
   }, []);
 
   const handleData = (rowData) => {
-    if (query === "") {
+    if (query === '') {
       return rowData;
-    } else {
-      const filteredItems = rowData.filter((item) => JSON.stringify(item).toLowerCase().indexOf(query.toLowerCase()) !== -1);
-      return filteredItems;
     }
+    const filteredItems = rowData.filter((item) => JSON.stringify(item).toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filteredItems;
   };
 
   return (

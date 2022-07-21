@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import ContentCreateModal from "../modals/ContentCreateModal";
-import CreateIcon from "../svg/CreateIcon";
+import ContentCreateModal from '../modals/ContentCreateModal';
+import CreateIcon from '../svg/CreateIcon';
 
-const CreateButton = (props) => {
+function CreateButton(props) {
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
   const handleOpenCreateModal = () => {
@@ -12,7 +12,6 @@ const CreateButton = (props) => {
 
   const handleCloseCreateModal = () => {
     setOpenCreateModal(!openCreateModal);
-    window.location.reload(true);
   };
 
   return (
@@ -25,6 +24,6 @@ const CreateButton = (props) => {
       {openCreateModal ? <ContentCreateModal onClose={handleCloseCreateModal} content={props.content} /> : null}
     </>
   );
-};
+}
 
 export default CreateButton;

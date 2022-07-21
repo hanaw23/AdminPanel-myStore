@@ -1,4 +1,4 @@
-const LoadingSkeleton = () => {
+function LoadingSkeleton() {
   return (
     <div className="w-full py-5  mx-auto mt-20">
       <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5">
@@ -13,6 +13,6 @@ const LoadingSkeleton = () => {
       </div>
     </div>
   );
-};
+}
 
 export default LoadingSkeleton;

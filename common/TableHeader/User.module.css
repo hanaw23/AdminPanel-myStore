@@ -1,0 +1,23 @@
+.border {
+  border: none;
+  width: 75px;
+  height: 20px;
+}
+
+.male {
+  background-color: rgb(22, 160, 239);
+  color: white;
+  text-align: center;
+  padding-bottom: 4px;
+  border-radius: 10px;
+  border: none;
+}
+
+.female {
+  background-color: rgb(239, 22, 69);
+  color: white;
+  text-align: center;
+  padding-bottom: 4px;
+  border-radius: 10px;
+  border: none;
+}
