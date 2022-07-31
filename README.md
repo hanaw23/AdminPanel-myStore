@@ -1,3 +1,10 @@
+## DEPLOY URL
+Please checkout for the deployed of this project. The URL: 
+  1. Web-Landing : https://weblanding-mystore.web.app/
+  2. Admin-Panel : https://mystore-adminpanel-nextjs.vercel.app/
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
