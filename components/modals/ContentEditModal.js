@@ -1,16 +1,16 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
-import ContentEditForm from '../forms/Content/Carousel/ContentEditForm';
-import SecondaryEditForm from '../forms/Content/Secondary/SecondaryEditForm';
-import AboutEditForm from '../forms/Content/About/AboutEditForm';
-import style from './Modal.module.css';
+import ContentEditForm from "../forms/Content/Carousel/ContentEditForm";
+import SecondaryEditForm from "../forms/Content/Secondary/SecondaryEditForm";
+import AboutEditForm from "../forms/Content/About/AboutEditForm";
+import style from "./Modal.module.css";
 
 function ContentEditModal(props) {
   const switchModalCase = () => {
     switch (props.content) {
-      case 'Carousel':
+      case "Carousel":
         return <ContentEditForm onClose={props.onClose} idContent={props.idContent} nameContent={props.nameContent} descriptionContent={props.descriptionContent} imgContent={props.imgContent} />;
-      case 'Secondary':
+      case "Secondary":
         return (
           <SecondaryEditForm
             onClose={props.onClose}
@@ -23,7 +23,7 @@ function ContentEditModal(props) {
             logoC={props.logoC}
           />
         );
-      case 'About':
+      case "About":
         return <AboutEditForm onClose={props.onClose} idContent={props.idContent} nameContent={props.nameContent} descriptionContent={props.descriptionContent} videoContent={props.videoContent} />;
 
       default:
@@ -31,22 +31,19 @@ function ContentEditModal(props) {
   };
 
   return ReactDOM.createPortal(
-    <div className={`${style.animated} ${style.faster} ${style.fadeIn} main-modal fixed w-full h-100 inset-0 z-50 flex justify-center items-center overflow-auto`} style={{ background: 'rgba(0,0,0,.7)' }}>
+    <div className={`${style.animated} ${style.faster} ${style.fadeIn} main-modal fixed w-full h-100 inset-0 z-50 flex justify-center items-center overflow-auto`} style={{ background: "rgba(0,0,0,.7)" }}>
       <div className="bg-gray-400 flex align-center justify-center">
         <div>
           <div className="w-[800px] h-[750px] bg-white rounded-[8px] px-6 py-6">
             <div>
-              <div className="text-xl font-bold text-gray-800">
-                Edit
-                {props.content}
-              </div>
+              <div className="text-xl font-bold text-gray-800">Edit {props.content}</div>
               <div className="mt-2">{switchModalCase()}</div>
             </div>
           </div>
         </div>
       </div>
     </div>,
-    document.body,
+    document.body
   );
 }
 
